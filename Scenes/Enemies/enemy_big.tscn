@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo64oo2xlf4d0"]
+
+[ext_resource type="PackedScene" uid="uid://d1l2m162yd5g" path="res://Scenes/Enemies/base_enemy.tscn" id="1_jctct"]
+[ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="2_2l0bu"]
+
+[node name="EnemyBig" instance=ExtResource("1_jctct")]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("2_2l0bu")
+friction = 0.6
+speed = 70
+direction = Vector2(-1, 0)
+
+[node name="BlastCanon" parent="." index="0"]
+damage = 5
+
+[node name="Timer" parent="ShootingBehavior" index="0"]
+wait_time = 3.0
+
+[node name="HurtBox" parent="." index="3"]
+invincibilityTime = 1.0
+
+[node name="HealthComponent" parent="." index="4"]
+maxHealth = 5
+
+[node name="AnimatedSprite2D" parent="." index="5"]
+self_modulate = Color(1, 0.85, 0, 1)
+animation = &"down"
+
+[node name="LivingTimer" parent="." index="7"]
+wait_time = 600.0

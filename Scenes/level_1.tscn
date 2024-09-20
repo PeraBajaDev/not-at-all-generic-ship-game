@@ -1,0 +1,237 @@
+[gd_scene load_steps=26 format=3 uid="uid://6p6eswf5l448"]
+
+[ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
+[ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
+[ext_resource type="PackedScene" uid="uid://bpp30uc0osiu8" path="res://Scenes/player.tscn" id="3_fkp4r"]
+[ext_resource type="PackedScene" uid="uid://c70mjikx55chm" path="res://Scenes/Enemies/enemy_spawer.tscn" id="6_8hxuw"]
+[ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="6_an14b"]
+[ext_resource type="PackedScene" uid="uid://bo64oo2xlf4d0" path="res://Scenes/Enemies/enemy_big.tscn" id="6_qt3lo"]
+[ext_resource type="AudioStream" uid="uid://cdl350qkgy2tj" path="res://Assets/Sounds/Beat Mekanik - Retro Arcade.mp3" id="6_usc3t"]
+[ext_resource type="Script" path="res://Scripts/Level/music.gd" id="7_71xjt"]
+[ext_resource type="PackedScene" uid="uid://cn03ajpo0l032" path="res://Scenes/Enemies/enemy_linear.tscn" id="7_o6jiq"]
+[ext_resource type="PackedScene" uid="uid://douyg6i6140w5" path="res://Scenes/Enemies/enemy_waving.tscn" id="9_nte57"]
+[ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
+[ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
+[ext_resource type="Script" path="res://Scenes/show_game_over_screen.gd" id="12_niyr2"]
+[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
+[ext_resource type="Script" path="res://Scenes/reload_screen.gd" id="14_jxlyw"]
+[ext_resource type="Script" path="res://Scenes/change_scene_to.gd" id="14_tudh5"]
+[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
+normal = Vector2(0, 1)
+distance = -93.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ffa38"]
+normal = Vector2(1, 0)
+distance = -146.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_u422w"]
+normal = Vector2(-1, 0)
+distance = -129.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_yc587"]
+distance = -69.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_prdye"]
+line_spacing = 12.0
+
+[sub_resource type="Animation" id="Animation_o6bw6"]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible_ratio")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(0.210224, 0.0089742),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_3rvqq"]
+resource_name = "Waving"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.266667, 0.566667, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": ["R", "Re", "Retr", "Retry?"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.0666667, 0.166667, 0.433333, 0.7, 1.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(93, 50), Vector2(92, 62), Vector2(93, 50), Vector2(92, 62), Vector2(93, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iauaj"]
+_data = {
+"RESET": SubResource("Animation_o6bw6"),
+"Waving": SubResource("Animation_3rvqq")
+}
+
+[node name="Level 1" type="Node2D"]
+metadata/_edit_vertical_guides_ = [1775.0, 0.0]
+metadata/_edit_horizontal_guides_ = [0.0]
+
+[node name="LevelBoundaries" type="StaticBody2D" parent="."]
+z_index = 5
+position = Vector2(145, 92)
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_ttt8a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_ffa38")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_u422w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelBoundaries"]
+shape = SubResource("WorldBoundaryShape2D_yc587")
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Parallax2D" type="Parallax2D" parent="Background"]
+z_index = -2
+scroll_offset = Vector2(1, -2)
+repeat_size = Vector2(192, 0)
+autoscroll = Vector2(-5, 0)
+repeat_times = 3
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background/Parallax2D"]
+position = Vector2(93, 88)
+texture = ExtResource("1_dtlmu")
+
+[node name="d" type="Parallax2D" parent="Background"]
+scroll_scale = Vector2(4, 4)
+scroll_offset = Vector2(0, 57)
+repeat_size = Vector2(816, 0)
+autoscroll = Vector2(-40, 0)
+
+[node name="BackgroundSprite" type="Sprite2D" parent="Background/d"]
+position = Vector2(162, 22)
+scale = Vector2(1.05, 1.05)
+texture = ExtResource("2_lyh68")
+
+[node name="EnemySpawer" parent="." instance=ExtResource("6_8hxuw")]
+position = Vector2(296, 81)
+nodes = Array[PackedScene]([ExtResource("6_qt3lo"), ExtResource("7_o6jiq"), ExtResource("9_nte57")])
+_range = 50.0
+spawnPropagationDirection = Vector2(0, 1)
+
+[node name="AsteroidSpawner" parent="." instance=ExtResource("6_8hxuw")]
+position = Vector2(140, -9)
+nodes = Array[PackedScene]([ExtResource("9_r262x")])
+_range = 30.0
+spawnPropagationDirection = Vector2(0, 1)
+spawnRate = 4
+
+[node name="Misc" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Misc"]
+position = Vector2(137, 83)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Misc"]
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Misc"]
+stream = ExtResource("6_usc3t")
+volume_db = -20.0
+autoplay = true
+parameters/looping = true
+script = ExtResource("7_71xjt")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Game Over Screen" type="Control" parent="CanvasLayer"]
+visible = false
+z_index = 6
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 1.012
+offset_right = -1.0
+offset_bottom = 0.0799866
+theme = ExtResource("6_an14b")
+script = ExtResource("12_niyr2")
+playerStats = ExtResource("13_hicdo")
+
+[node name="Panel" type="PanelContainer" parent="CanvasLayer/Game Over Screen"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.022
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = 0.0379944
+offset_bottom = -1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Game Over Screen/Panel"]
+modulate = Color(0.99, 0.99, 0.99, 1)
+layout_mode = 2
+alignment = 1
+
+[node name="You Lose!" type="Label" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer"]
+layout_mode = 2
+text = "You Lose!"
+label_settings = SubResource("LabelSettings_prdye")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Retry?" type="Label" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.86, 0.86, 0.360784)
+theme_override_constants/line_spacing = 45
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 12
+text = "Retry?"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer/Retry?"]
+libraries = {
+"": SubResource("AnimationLibrary_iauaj")
+}
+
+[node name="HSeparator" type="HSeparator" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer"]
+modulate = Color(0.988235, 0.988235, 0.227451, 1)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+alignment = 1
+
+[node name="No" type="Button" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Na, I'm Scared"
+script = ExtResource("14_tudh5")
+scene = ExtResource("15_0n5ac")
+
+[node name="Yes" type="Button" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Yep"
+script = ExtResource("14_jxlyw")
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("12_4llbw")]
+
+[node name="Player" parent="." instance=ExtResource("3_fkp4r")]

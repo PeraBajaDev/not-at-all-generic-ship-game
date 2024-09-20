@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://cabm7xdl3s10r"]
+
+[ext_resource type="Texture2D" uid="uid://7gc0dw1c276k" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/Hit/sprites/hit1.png" id="1_1qb76"]
+[ext_resource type="Texture2D" uid="uid://br8f5xw6hhl81" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/Hit/sprites/hit2.png" id="2_tedkh"]
+[ext_resource type="Texture2D" uid="uid://vwtcyjn2bfwx" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/Hit/sprites/hit3.png" id="3_c0k58"]
+[ext_resource type="Texture2D" uid="uid://cax1ecc74imkv" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/Hit/sprites/hit4.png" id="4_pnkqg"]
+[ext_resource type="Script" path="res://Scripts/Health System/hit_effect.gd" id="5_71mmc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnusx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1qb76")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_tedkh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c0k58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pnkqg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HitEffect" type="AnimatedSprite2D"]
+z_index = 2
+sprite_frames = SubResource("SpriteFrames_cnusx")
+autoplay = "default"
+frame = 3
+frame_progress = 0.705267
+script = ExtResource("5_71mmc")

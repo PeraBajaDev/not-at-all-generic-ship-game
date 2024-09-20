@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://drjairga10plk"
+path="res://.godot/imported/shot 1.wav-4ff05f3f51b672e37015509637958183.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/shot 1.wav"
+dest_files=["res://.godot/imported/shot 1.wav-4ff05f3f51b672e37015509637958183.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

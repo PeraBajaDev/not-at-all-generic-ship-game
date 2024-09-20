@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://djmbea10prvi0"]
+
+[ext_resource type="Texture2D" uid="uid://de7xdei2igtia" path="res://Assets/Sprites/pixil-frame-0 (1).png" id="1_360lu"]
+[ext_resource type="Script" path="res://Scripts/Health System/health_bar.gd" id="2_j3pbn"]
+[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="3_6wy4r"]
+
+[sub_resource type="Shader" id="Shader_khwdb"]
+code = "shader_type canvas_item;
+
+void vertex() {
+	// Called for every vertex the material is visible on.
+}
+
+void fragment() {
+	//
+}
+
+//void light() {
+	// Called for every pixel for every light affecting the CanvasItem.
+	// Uncomment to replace the default light processing function with this one.
+//}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_77l8b"]
+shader = SubResource("Shader_khwdb")
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -62.0
+offset_bottom = -142.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+
+[node name="HealthBar" type="TextureRect" parent="."]
+clip_children = 2
+z_index = 5
+material = SubResource("ShaderMaterial_77l8b")
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_360lu")
+stretch_mode = 1
+script = ExtResource("2_j3pbn")
+player = ExtResource("3_6wy4r")
+
+[node name="CurrentHealth" type="ColorRect" parent="HealthBar"]
+modulate = Color(0, 0.79, 0.79, 1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2

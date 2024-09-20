@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://c33r1shmgujmg"]
+
+[ext_resource type="Script" path="res://Scripts/Movement/linear_movement.gd" id="1_5tip0"]
+[ext_resource type="Texture2D" uid="uid://c7lnuvq4cwdl7" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/shoot/shoot1.png" id="2_2swlo"]
+[ext_resource type="Script" path="res://Scripts/Shoot System/bullet.gd" id="2_ie460"]
+[ext_resource type="Texture2D" uid="uid://creitd40hk23x" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/shoot/shoot2.png" id="3_upqsy"]
+[ext_resource type="Script" path="res://Scripts/Shoot System/increase_size_per_damage.gd" id="4_litmd"]
+[ext_resource type="PackedScene" uid="uid://c3661xps5vu8h" path="res://Scenes/living_timer.tscn" id="6_451qu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5grlk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_2swlo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_upqsy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8dobu"]
+
+[node name="PlayerBullet" type="Node2D"]
+script = ExtResource("2_ie460")
+
+[node name="Movement" type="CharacterBody2D" parent="."]
+z_index = 1
+collision_layer = 2
+collision_mask = 4
+motion_mode = 1
+slide_on_ceiling = false
+script = ExtResource("1_5tip0")
+speed = 200
+direction = Vector2(1, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Movement"]
+sprite_frames = SubResource("SpriteFrames_5grlk")
+autoplay = "default"
+script = ExtResource("4_litmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Movement"]
+shape = SubResource("CircleShape2D_8dobu")
+
+[node name="LivingTimer" parent="." instance=ExtResource("6_451qu")]
+wait_time = 3.0
