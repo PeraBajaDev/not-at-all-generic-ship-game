@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdl350qkgy2tj"
+path="res://.godot/imported/Beat Mekanik - Retro Arcade.mp3-79e62bb5e81ff5f1e147136be60cb87d.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Beat Mekanik - Retro Arcade.mp3"
+dest_files=["res://.godot/imported/Beat Mekanik - Retro Arcade.mp3-79e62bb5e81ff5f1e147136be60cb87d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

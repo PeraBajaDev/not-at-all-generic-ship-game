@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyb4p3beebu8t"]
+
+[ext_resource type="Script" path="res://ghosting.gd" id="1_8fny1"]
+
+[node name="Ghosting" type="AnimatedSprite2D"]
+modulate = Color(0.39312, 0.3696, 0.84, 1)
+script = ExtResource("1_8fny1")

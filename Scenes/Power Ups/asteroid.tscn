@@ -1,0 +1,41 @@
+[gd_scene load_steps=10 format=3 uid="uid://bx34np1ogx3bh"]
+
+[ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="1_da4vl"]
+[ext_resource type="Texture2D" uid="uid://f1a3gperj32" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/asteroids/asteroid.png" id="2_s4eos"]
+[ext_resource type="Script" path="res://Scripts/Power Ups/asteroid.gd" id="3_hyiyl"]
+[ext_resource type="PackedScene" uid="uid://3ul3f4y267sw" path="res://Scenes/Power Ups/health_power_up.tscn" id="4_0h6vh"]
+[ext_resource type="PackedScene" uid="uid://cchdm6nj2rb4k" path="res://Scenes/Power Ups/bullet_spread_power_up.tscn" id="4_lybf4"]
+[ext_resource type="PackedScene" uid="uid://dvpra5yuirwfs" path="res://Scenes/Power Ups/damage_power_up.tscn" id="5_tfj4e"]
+[ext_resource type="PackedScene" uid="uid://07h50uw1jdjd" path="res://Scenes/Power Ups/recharge_speed_power_up.tscn" id="6_ys8j8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqt27"]
+size = Vector2(35, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5f11i"]
+
+[node name="Asteroid" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_da4vl")
+friction = 0.3
+speed = 40
+direction = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_s4eos")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
+monitorable = false
+script = ExtResource("3_hyiyl")
+powerUps = Array[PackedScene]([ExtResource("4_lybf4"), ExtResource("5_tfj4e"), ExtResource("6_ys8j8"), ExtResource("4_0h6vh")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_nqt27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5f11i")
+disabled = true

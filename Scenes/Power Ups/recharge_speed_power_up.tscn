@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://07h50uw1jdjd"]
+
+[ext_resource type="PackedScene" uid="uid://clru8q7thejn7" path="res://Scenes/Power Ups/base_power_up.tscn" id="1_2gjf6"]
+[ext_resource type="Script" path="res://Scripts/Power Ups/recharge_speed_power_up.gd" id="2_l6354"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fikec"]
+font_size = 8
+font_color = Color(0.494, 0.31, 1, 1)
+
+[node name="RechargeSpeedPowerUp" instance=ExtResource("1_2gjf6")]
+modulate = Color(0.46, 0.766, 1, 1)
+script = ExtResource("2_l6354")
+dropProbability = 0.2
+
+[node name="Sprite2D" parent="." index="0"]
+frame = 3
+
+[node name="DisplayInfo" parent="." index="3"]
+offset_top = -15.0
+offset_right = 77.0
+offset_bottom = 8.0
+text = "+1 Recharge Speed"
+label_settings = SubResource("LabelSettings_fikec")
