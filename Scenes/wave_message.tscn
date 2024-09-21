@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs38xfq8w7x5y"]
+
+[ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="1_6ln57"]
+[ext_resource type="Script" path="res://Scripts/Level/wave_message.gd" id="2_m0svi"]
+
+[node name="WaveMessage" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_6ln57")
+text = "Wave "
+script = ExtResource("2_m0svi")

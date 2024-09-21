@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://d1l2m162yd5g"]
+[gd_scene load_steps=14 format=3 uid="uid://d1l2m162yd5g"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/base_movement.gd" id="1_5nnnn"]
 [ext_resource type="Texture2D" uid="uid://bq2p16abimvx7" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/enemy/sprites/enemy3.png" id="2_3nh4b"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/shootBiheaviour.gd" id="3_bmr0o"]
 [ext_resource type="PackedScene" uid="uid://c8dv07iqaqr73" path="res://Scenes/Enemies/enemy_bullet.tscn" id="3_lsdy6"]
@@ -9,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://chi86w4q356ck" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/enemy/sprites/enemy2.png" id="5_wrdep"]
 [ext_resource type="Texture2D" uid="uid://bqmqbvemuauju" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/enemy/sprites/enemy5.png" id="6_audpg"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/blast_canon.gd" id="7_76nk6"]
-[ext_resource type="Script" path="res://Scripts/ship_animation_controller.gd" id="9_kl2y8"]
-[ext_resource type="Script" path="res://Scripts/direction_handler.gd" id="10_xpk0x"]
+[ext_resource type="Script" path="res://Scripts/Player/ship_animation_controller.gd" id="9_kl2y8"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="10_xpk0x"]
 [ext_resource type="PackedScene" uid="uid://c3661xps5vu8h" path="res://Scenes/living_timer.tscn" id="12_ji5a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oanf0"]
@@ -46,8 +45,8 @@ animations = [{
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
 collision_layer = 4
+collision_mask = 0
 motion_mode = 1
-script = ExtResource("1_5nnnn")
 
 [node name="BlastCanon" type="Node2D" parent="." node_paths=PackedStringArray("shooterNode")]
 position = Vector2(-12, 0)
@@ -59,7 +58,6 @@ damage = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_oanf0")
-disabled = true
 
 [node name="ShootingBehavior" type="Node" parent="."]
 script = ExtResource("3_bmr0o")
@@ -70,7 +68,7 @@ autostart = true
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("4_u83s0")]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 35
 healthComponent = NodePath("../HealthComponent")
 invincibilityTime = 0.2
 

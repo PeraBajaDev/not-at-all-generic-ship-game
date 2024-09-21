@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Power Ups/powerUp.gd" id="1_ber8f"]
 [ext_resource type="Texture2D" uid="uid://dmvw1k5mt71f6" path="res://Assets/Sprites/power-up.png" id="1_o4lkq"]
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="2_0f5an"]
-[ext_resource type="AudioStream" uid="uid://bes4ef27h28oo" path="res://Assets/Sounds/220173__gameaudio__spacey-1uppower-up.wav" id="3_6p275"]
+[ext_resource type="AudioStream" uid="uid://bes4ef27h28oo" path="res://Assets/Sounds/power_up.wav" id="3_6p275"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwg3u"]
 
@@ -94,7 +94,6 @@ _data = {
 
 [node name="BasePowerUp" type="Area2D"]
 collision_layer = 32
-collision_mask = 5
 monitorable = false
 script = ExtResource("1_ber8f")
 
@@ -112,8 +111,9 @@ stream = ExtResource("3_6p275")
 [node name="DisplayInfo" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = -14.0
-offset_top = -23.0
+offset_top = -15.0
 offset_right = 26.0
+offset_bottom = 8.0
 theme = ExtResource("2_0f5an")
 text = "+1"
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="1_4l6h7"]
 [ext_resource type="Texture2D" uid="uid://smmsoynhows5" path="res://Assets/Sprites/Environments/bulkhead-walls/v1/layers/bulkhead-walls-back.png" id="1_q7hir"]
-[ext_resource type="Script" path="res://Scripts/Level/menu.gd" id="2_gc4b5"]
+[ext_resource type="Script" path="res://Scripts/Game/menu.gd" id="2_gc4b5"]
 
 [node name="TextureRect" type="PanelContainer"]
 anchors_preset = 15

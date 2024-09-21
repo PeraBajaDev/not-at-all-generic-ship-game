@@ -20,7 +20,9 @@ config/icon="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/
 
 [autoload]
 
-Music="*res://Scripts/Level/music.gd"
+Music="*res://Scripts/Game/music.gd"
+GameState="*res://Scripts/Game/game_state.gd"
+Fullscreen="*res://Scripts/Game/fullscreen.gd"
 
 [display]
 
