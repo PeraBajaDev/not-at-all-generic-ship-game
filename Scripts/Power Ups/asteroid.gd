@@ -27,5 +27,7 @@ func pick_random_power_up():
 
 func create_power_up(index: int):
 	var powerUp: PowerUp = powerUps[index].instantiate()
-	powerUp.position = get_parent().position
-	get_parent().add_sibling(powerUp)
+	var asteroid = get_parent()
+	powerUp.position = asteroid.position
+	
+	asteroid.call_deferred("add_sibling", powerUp)
