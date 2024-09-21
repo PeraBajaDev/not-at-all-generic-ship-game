@@ -9,7 +9,7 @@ func _ready() -> void:
 		var newBullet: Bullet = bulletScene.instantiate()
 		
 		
-		if not get_node('Movement'): return
+		if not has_node('Movement'): return
 		var movement: Node2D = get_node('Movement')
 		newBullet.position = movement.global_position
 		newBullet.damage = roundi(damage / 2)
