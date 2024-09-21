@@ -5,15 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://bc3ksnjbvtmxf" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player2.png" id="2_gd2qb"]
 [ext_resource type="Texture2D" uid="uid://bfag3k4rjj525" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player3.png" id="3_fppty"]
 [ext_resource type="Script" path="res://Scripts/Player/input_handler.gd" id="5_6pnct"]
-[ext_resource type="Script" path="res://Scripts/ship_animation_controller.gd" id="5_gor2f"]
+[ext_resource type="Script" path="res://Scripts/Player/ship_animation_controller.gd" id="5_gor2f"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/blast_canon.gd" id="6_sepa4"]
-[ext_resource type="PackedScene" uid="uid://cyb4p3beebu8t" path="res://ghosting.tscn" id="6_w6ahq"]
+[ext_resource type="PackedScene" uid="uid://cyb4p3beebu8t" path="res://Scenes/ghosting.tscn" id="6_w6ahq"]
 [ext_resource type="Script" path="res://Scripts/Health System/health_component.gd" id="8_f4i0f"]
 [ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="8_k8dlb"]
-[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Shoot System/bullet.tscn" id="8_p3dk5"]
+[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="8_p3dk5"]
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
-[ext_resource type="Script" path="res://Scenes/stats_manager.gd" id="13_4ma3o"]
-[ext_resource type="Script" path="res://Scripts/random_pich_picker.gd" id="13_oeyvu"]
+[ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
+[ext_resource type="Script" path="res://Scripts/Game/random_pich_picker.gd" id="13_oeyvu"]
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsto"]
@@ -90,7 +90,6 @@ shape = SubResource("RectangleShape2D_oanf0")
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("8_k8dlb")]
 scale = Vector2(0.5, 0.5)
-collision_layer = 1
 collision_mask = 12
 healthComponent = NodePath("../HealthComponent")
 
