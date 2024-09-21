@@ -6,9 +6,9 @@ func _ready() -> void:
 
 func on_body_entered(body: Node2D):
 	apply(body)
-	var powerUpInfo = $DisplayInfo/AnimationPlayer as AnimationPlayer
-	powerUpInfo.play('RESET')
-	await powerUpInfo.animation_finished
+	var powerUpLabel = $DisplayInfo/AnimationPlayer as AnimationPlayer
+	powerUpLabel.play('RESET')
+	await powerUpLabel.animation_finished
 	queue_free()
 	
 func apply(_body: Node2D):

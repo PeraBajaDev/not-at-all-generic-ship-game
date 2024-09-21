@@ -1,5 +1,6 @@
-extends Node
+class_name Enemy
 
+extends Node
 signal direction_changed(direction)
 
 func _process(_delta: float) -> void:

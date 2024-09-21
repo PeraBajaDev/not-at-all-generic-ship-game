@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxqp5mxah3bwp"]
 
-[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Shoot System/bullet.tscn" id="1_0w7k7"]
+[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="1_0w7k7"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/bullet_spreader.gd" id="2_ecrqq"]
 
 [node name="PlayerBulletSpreader" instance=ExtResource("1_0w7k7")]

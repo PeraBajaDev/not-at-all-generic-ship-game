@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c8dv07iqaqr73"]
 
-[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Shoot System/bullet.tscn" id="1_86480"]
+[ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="1_86480"]
 
 [node name="EnemyBullet" instance=ExtResource("1_86480")]
 
