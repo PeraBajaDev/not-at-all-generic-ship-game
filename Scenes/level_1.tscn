@@ -1,22 +1,25 @@
-[gd_scene load_steps=26 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=29 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
 [ext_resource type="PackedScene" uid="uid://bpp30uc0osiu8" path="res://Scenes/player.tscn" id="3_fkp4r"]
-[ext_resource type="PackedScene" uid="uid://c70mjikx55chm" path="res://Scenes/Enemies/enemy_spawer.tscn" id="6_8hxuw"]
+[ext_resource type="PackedScene" uid="uid://djbeqgvnyrr42" path="res://enemy_laser.tscn" id="4_ccfxa"]
+[ext_resource type="PackedScene" uid="uid://c70mjikx55chm" path="res://Scenes/Enemies/spawner.tscn" id="6_8hxuw"]
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="6_an14b"]
 [ext_resource type="PackedScene" uid="uid://bo64oo2xlf4d0" path="res://Scenes/Enemies/enemy_big.tscn" id="6_qt3lo"]
-[ext_resource type="AudioStream" uid="uid://cdl350qkgy2tj" path="res://Assets/Sounds/Beat Mekanik - Retro Arcade.mp3" id="6_usc3t"]
-[ext_resource type="Script" path="res://Scripts/Level/music.gd" id="7_71xjt"]
+[ext_resource type="AudioStream" uid="uid://cdl350qkgy2tj" path="res://Assets/Sounds/Music.mp3" id="6_usc3t"]
+[ext_resource type="Script" path="res://Scripts/Game/music.gd" id="7_71xjt"]
 [ext_resource type="PackedScene" uid="uid://cn03ajpo0l032" path="res://Scenes/Enemies/enemy_linear.tscn" id="7_o6jiq"]
 [ext_resource type="PackedScene" uid="uid://douyg6i6140w5" path="res://Scenes/Enemies/enemy_waving.tscn" id="9_nte57"]
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
-[ext_resource type="Script" path="res://Scenes/show_game_over_screen.gd" id="12_niyr2"]
+[ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scenes/reload_screen.gd" id="14_jxlyw"]
-[ext_resource type="Script" path="res://Scenes/change_scene_to.gd" id="14_tudh5"]
+[ext_resource type="Script" path="res://Scripts/Game/change_scene_to.gd" id="14_tudh5"]
 [ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
+[ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/wave_message.tscn" id="17_rctls"]
+[ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://wave_changer_timer.tscn" id="18_1lgwq"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
@@ -131,16 +134,36 @@ texture = ExtResource("2_lyh68")
 
 [node name="EnemySpawer" parent="." instance=ExtResource("6_8hxuw")]
 position = Vector2(296, 81)
-nodes = Array[PackedScene]([ExtResource("6_qt3lo"), ExtResource("7_o6jiq"), ExtResource("9_nte57")])
+nodes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
 _range = 50.0
 spawnPropagationDirection = Vector2(0, 1)
+spawnRate = 5
+
+[node name="Timer" type="Timer" parent="EnemySpawer"]
+wait_time = 5.0
+autostart = true
+
+[node name="LaserEnemySpawer2" parent="." instance=ExtResource("6_8hxuw")]
+position = Vector2(140, 0)
+nodes = Array[PackedScene]([ExtResource("4_ccfxa")])
+_range = 50.0
+spawnPropagationDirection = Vector2(1, 0)
+spawnRate = 1
+
+[node name="Timer" type="Timer" parent="LaserEnemySpawer2"]
+wait_time = 30.0
+autostart = true
 
 [node name="AsteroidSpawner" parent="." instance=ExtResource("6_8hxuw")]
 position = Vector2(140, -9)
 nodes = Array[PackedScene]([ExtResource("9_r262x")])
 _range = 30.0
 spawnPropagationDirection = Vector2(0, 1)
-spawnRate = 4
+spawnRate = 1
+
+[node name="Timer" type="Timer" parent="AsteroidSpawner"]
+wait_time = 10.0
+autostart = true
 
 [node name="Misc" type="Node" parent="."]
 
@@ -157,6 +180,20 @@ parameters/looping = true
 script = ExtResource("7_71xjt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WaveMessage" parent="CanvasLayer/CenterContainer" instance=ExtResource("17_rctls")]
+visible = false
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Game Over Screen" type="Control" parent="CanvasLayer"]
 visible = false
@@ -235,3 +272,7 @@ script = ExtResource("14_jxlyw")
 [node name="HealthBar" parent="CanvasLayer" instance=ExtResource("12_4llbw")]
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
+position = Vector2(48, 92)
+
+[node name="WaveChangerTimer" parent="." instance=ExtResource("18_1lgwq")]
+wait_time = 0.2
