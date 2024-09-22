@@ -103,6 +103,7 @@ invincibilityTime = 1.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("8_f4i0f")
+maxHealthLimit = 15
 maxHealth = 5
 
 [node name="Sounds" type="Node" parent="."]

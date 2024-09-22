@@ -1,11 +1,13 @@
 class_name HealthComponent
 extends Node
 
-@export var maxHealth: int
-var health: int: 
+@export var maxHealthLimit: int = 100
+@export var maxHealth: int:
+	set(value):
+		maxHealth = value if value <= maxHealthLimit else maxHealthLimit 
+var health: int:
 	set(value):
 		health = value if value >= 0 else 0
-
 signal damaged
 signal maxHealthIncremented
 signal died
