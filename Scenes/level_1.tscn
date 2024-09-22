@@ -20,10 +20,11 @@
 [ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://wave_changer_timer.tscn" id="18_1lgwq"]
+[ext_resource type="Script" path="res://Scripts/Level/reduce_wave_time_on_wave_changed.gd" id="20_rnhry"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
-distance = -93.0
+distance = -87.0
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ffa38"]
 normal = Vector2(1, 0)
@@ -276,5 +277,4 @@ spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 1
 
 [node name="Timer" type="Timer" parent="Spawners/AsteroidSpawner"]
-wait_time = 10.0
 autostart = true
