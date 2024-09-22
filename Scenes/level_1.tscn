@@ -132,39 +132,6 @@ position = Vector2(162, 22)
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("2_lyh68")
 
-[node name="EnemySpawer" parent="." instance=ExtResource("6_8hxuw")]
-position = Vector2(296, 81)
-nodes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
-_range = 50.0
-spawnPropagationDirection = Vector2(0, 1)
-spawnRate = 5
-
-[node name="Timer" type="Timer" parent="EnemySpawer"]
-wait_time = 5.0
-autostart = true
-
-[node name="LaserEnemySpawer2" parent="." instance=ExtResource("6_8hxuw")]
-position = Vector2(140, 0)
-nodes = Array[PackedScene]([ExtResource("4_ccfxa")])
-_range = 50.0
-spawnPropagationDirection = Vector2(1, 0)
-spawnRate = 1
-
-[node name="Timer" type="Timer" parent="LaserEnemySpawer2"]
-wait_time = 30.0
-autostart = true
-
-[node name="AsteroidSpawner" parent="." instance=ExtResource("6_8hxuw")]
-position = Vector2(140, -9)
-nodes = Array[PackedScene]([ExtResource("9_r262x")])
-_range = 30.0
-spawnPropagationDirection = Vector2(0, 1)
-spawnRate = 1
-
-[node name="Timer" type="Timer" parent="AsteroidSpawner"]
-wait_time = 10.0
-autostart = true
-
 [node name="Misc" type="Node" parent="."]
 
 [node name="Camera2D" type="Camera2D" parent="Misc"]
@@ -194,6 +161,8 @@ visible = false
 layout_mode = 2
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("12_4llbw")]
 
 [node name="Game Over Screen" type="Control" parent="CanvasLayer"]
 visible = false
@@ -269,10 +238,43 @@ layout_mode = 2
 text = "Yep"
 script = ExtResource("14_jxlyw")
 
-[node name="HealthBar" parent="CanvasLayer" instance=ExtResource("12_4llbw")]
-
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
 position = Vector2(48, 92)
 
 [node name="WaveChangerTimer" parent="." instance=ExtResource("18_1lgwq")]
 wait_time = 0.2
+
+[node name="Spawners" type="Node" parent="."]
+
+[node name="EnemySpawer" parent="Spawners" instance=ExtResource("6_8hxuw")]
+position = Vector2(296, 81)
+nodes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
+_range = 50.0
+spawnPropagationDirection = Vector2(0, 1)
+spawnRate = 10
+
+[node name="Timer" type="Timer" parent="Spawners/EnemySpawer"]
+wait_time = 5.0
+autostart = true
+
+[node name="LaserEnemySpawer2" parent="Spawners" instance=ExtResource("6_8hxuw")]
+position = Vector2(314, 10)
+nodes = Array[PackedScene]([ExtResource("4_ccfxa")])
+_range = 50.0
+spawnPropagationDirection = Vector2(1, 0)
+spawnRate = 1
+
+[node name="Timer" type="Timer" parent="Spawners/LaserEnemySpawer2"]
+wait_time = 30.0
+autostart = true
+
+[node name="AsteroidSpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
+position = Vector2(140, -9)
+nodes = Array[PackedScene]([ExtResource("9_r262x")])
+_range = 30.0
+spawnPropagationDirection = Vector2(0, 1)
+spawnRate = 1
+
+[node name="Timer" type="Timer" parent="Spawners/AsteroidSpawner"]
+wait_time = 10.0
+autostart = true

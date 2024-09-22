@@ -1,33 +1,32 @@
 extends Area2D
 
-@export var powerUps: Array[PackedScene] 
-var probabilities: Array = [0.06, 0.2, 0.8, 0.9]
+@export var powerUpsScenes: Array[PackedScene] 
+const PROBABILITIES: Array[float] = [0.06, 0.2, 0.8, 0.9]
+@onready var asteroid = get_parent()
 
 func _ready() -> void:
 	self.body_entered.connect(on_body_entered)
 
 func on_body_entered(body):
 	var bullet := body.get_parent() as Bullet
-	print(body)
+	
 	if bullet:
 		pick_random_power_up()
 		bullet.queue_free()
-		get_parent().queue_free()
-
+		asteroid.queue_free()
+		
+# TODO corregir responsabilidades de las funciones
 func pick_random_power_up():
 	var probability : float = randf_range(0, 1)
-	for n in range(powerUps.size()):
-		if n == powerUps.size() - 1:
+	for n in range(powerUpsScenes.size()):
+		if n == powerUpsScenes.size() - 1:
 			create_power_up(n)
 			return
-		if probability < probabilities[n]:
+		if probability < PROBABILITIES[n]:
 			create_power_up(n)
 			return
 			
-
 func create_power_up(index: int):
-	var powerUp: PowerUp = powerUps[index].instantiate()
-	var asteroid = get_parent()
-	powerUp.position = asteroid.position
-	
+	var powerUp: PowerUp = powerUpsScenes[index].instantiate()
+	powerUp.position = asteroid.global_position
 	asteroid.call_deferred("add_sibling", powerUp)

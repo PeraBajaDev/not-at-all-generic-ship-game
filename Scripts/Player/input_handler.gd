@@ -3,9 +3,9 @@ extends Node
 signal shoot
 signal direction_changed(direction)
 signal dash(duration: float)
+const DASH_DURATION = 0.25
 var direction : Vector2 
 
-@onready var window = get_window()
 @export var recoil: float
 @export var dash_recoil: float
 
@@ -19,5 +19,5 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed('player_dash'):
 		print($DashTimer.time_left)
 		if $DashTimer.is_stopped():
-			dash.emit(0.25)
+			dash.emit(DASH_DURATION)
 			$DashTimer.start(dash_recoil)
