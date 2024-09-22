@@ -2,7 +2,9 @@ class_name HealthComponent
 extends Node
 
 @export var maxHealth: int
-var health: int
+var health: int: 
+	set(value):
+		health = value if value >= 0 else 0
 
 signal damaged
 signal maxHealthIncremented
@@ -19,6 +21,6 @@ func harm(value: int):
 	health -= value
 	damaged.emit()
 	
-	if health <= 0: 
+	if health == 0: 
 		died.emit()
 		return

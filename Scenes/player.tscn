@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bpp30uc0osiu8"]
+[gd_scene load_steps=19 format=3 uid="uid://bpp30uc0osiu8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_23fvy"]
 [ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_p5kka"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Health System/health_component.gd" id="8_f4i0f"]
 [ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="8_k8dlb"]
 [ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="8_p3dk5"]
+[ext_resource type="Script" path="res://Scenes/disable_hurtbox_when_dashing.gd" id="10_nxnel"]
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
 [ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
 [ext_resource type="Script" path="res://Scripts/Game/random_pich_picker.gd" id="13_oeyvu"]
@@ -53,6 +54,7 @@ script = ExtResource("1_23fvy")
 max_speed = 100.0
 acceleration = 100
 friction = 200
+dash_force = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("shipHandler", "healthComponent")]
 sprite_frames = SubResource("SpriteFrames_afsto")
@@ -65,7 +67,7 @@ ghosting_scene = ExtResource("6_w6ahq")
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("5_6pnct")
 recoil = 0.6
-dash_recoil = 2.0
+dash_recoil = 1.6
 
 [node name="ShootTimer" type="Timer" parent="InputHandler"]
 wait_time = 0.6
@@ -87,11 +89,17 @@ damage = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_oanf0")
+script = ExtResource("10_nxnel")
+
+[node name="HurtBoxDisabler" type="Node" parent="." node_paths=PackedStringArray("inputHandler")]
+script = ExtResource("10_nxnel")
+inputHandler = NodePath("../InputHandler")
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("8_k8dlb")]
 scale = Vector2(0.5, 0.5)
 collision_mask = 12
 healthComponent = NodePath("../HealthComponent")
+invincibilityTime = 1.0
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("8_f4i0f")
