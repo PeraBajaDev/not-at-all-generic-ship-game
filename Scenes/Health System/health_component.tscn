@@ -1,10 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bagc4tnvggtwb"]
+[gd_scene load_steps=2 format=3 uid="uid://bagc4tnvggtwb"]
 
 [ext_resource type="Script" path="res://Scripts/Health System/health_component.gd" id="1_ksm75"]
-[ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="2_au5qq"]
 
 [node name="HealthComponent" type="Node"]
 script = ExtResource("1_ksm75")
 maxHealth = 5
-
-[node name="HurtBox" parent="." instance=ExtResource("2_au5qq")]
