@@ -34,6 +34,7 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
 [node name="HealthBar" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.768627)
 clip_children = 2
 z_index = 5
 material = SubResource("ShaderMaterial_77l8b")
