@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://clru8q7thejn7"]
+[gd_scene load_steps=9 format=3 uid="uid://clru8q7thejn7"]
 
 [ext_resource type="Script" path="res://Scripts/Power Ups/powerUp.gd" id="1_ber8f"]
 [ext_resource type="Texture2D" uid="uid://dmvw1k5mt71f6" path="res://Assets/Sprites/power-up.png" id="1_o4lkq"]
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="2_0f5an"]
-[ext_resource type="Script" path="res://Scripts/Player/player_stats.gd" id="2_u38de"]
 [ext_resource type="AudioStream" uid="uid://bes4ef27h28oo" path="res://Assets/Sounds/power_up.wav" id="3_6p275"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pwg3u"]
@@ -97,9 +96,6 @@ _data = {
 collision_layer = 32
 monitorable = false
 script = ExtResource("1_ber8f")
-playerStats = ExtResource("2_u38de")
-statValue = 1.0
-statName = "health"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_o4lkq")

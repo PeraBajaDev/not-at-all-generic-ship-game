@@ -1,8 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://cchdm6nj2rb4k"]
+[gd_scene load_steps=13 format=3 uid="uid://cchdm6nj2rb4k"]
 
 [ext_resource type="PackedScene" uid="uid://clru8q7thejn7" path="res://Scenes/Power Ups/base_power_up.tscn" id="1_agwgh"]
 [ext_resource type="Script" path="res://Scripts/Power Ups/bullet_spread_power_up.gd" id="2_37f8p"]
-[ext_resource type="Script" path="res://Scripts/Player/player_stats.gd" id="3_6ohdp"]
 [ext_resource type="AudioStream" uid="uid://dlr63iw57wyt1" path="res://Assets/Sounds/shot 2.wav" id="3_hn73u"]
 [ext_resource type="Texture2D" uid="uid://crso3obub3bun" path="res://Assets/Sprites/power-up-1.png" id="4_xhms2"]
 [ext_resource type="Texture2D" uid="uid://c21nw5qty0uni" path="res://Assets/Sprites/power-up-2.png" id="5_6aipv"]
@@ -11,9 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bcaaqokqalq0c" path="res://Assets/Sprites/power-up-5.png" id="8_y78m3"]
 [ext_resource type="Texture2D" uid="uid://dde10kaw1i3rj" path="res://Assets/Sprites/power-up-6.png" id="9_v1l7a"]
 [ext_resource type="Texture2D" uid="uid://8t3uvw3iftl8" path="res://Assets/Sprites/power-up-7.png" id="10_ngcl1"]
-
-[sub_resource type="Resource" id="Resource_mxkwn"]
-script = ExtResource("3_6ohdp")
 
 [sub_resource type="LabelSettings" id="LabelSettings_xho22"]
 font_color = Color(1, 0.22, 0.22, 1)
@@ -51,8 +47,6 @@ animations = [{
 
 [node name="BulletSpreadPowerUp" instance=ExtResource("1_agwgh")]
 script = ExtResource("2_37f8p")
-playerStats = SubResource("Resource_mxkwn")
-statName = "bullet"
 
 [node name="Sprite2D" parent="." index="0"]
 visible = false
