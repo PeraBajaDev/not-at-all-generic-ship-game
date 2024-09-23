@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpp30uc0osiu8"]
+[gd_scene load_steps=20 format=3 uid="uid://bpp30uc0osiu8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_23fvy"]
 [ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_p5kka"]
@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
 [ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
 [ext_resource type="Script" path="res://Scripts/Game/random_pich_picker.gd" id="13_oeyvu"]
-[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
+[ext_resource type="Resource" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsto"]
 animations = [{
@@ -46,6 +46,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oanf0"]
 size = Vector2(14, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h8ufk"]
+size = Vector2(20, 14)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
@@ -100,6 +103,10 @@ scale = Vector2(0.5, 0.5)
 collision_mask = 12
 healthComponent = NodePath("../HealthComponent")
 invincibilityTime = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_h8ufk")
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("8_f4i0f")

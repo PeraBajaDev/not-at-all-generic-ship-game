@@ -9,8 +9,7 @@ func _ready() -> void:
 	
 func on_hurt(body: Node2D):
 	if not $InvencibilityTimer.is_stopped():
-		print('intocable', $InvencibilityTimer.time_left)
-		pass
+		return
 	if not healthComponent:
 		push_warning('Falta asignar nodo health component')
 		return

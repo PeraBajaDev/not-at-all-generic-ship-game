@@ -19,6 +19,9 @@ wait_time = 3.0
 [node name="HurtBox" parent="." index="3"]
 invincibilityTime = 1.0
 
+[node name="CollisionShape2D" parent="HurtBox" index="2"]
+position = Vector2(0, 1.66667)
+
 [node name="HealthComponent" parent="." index="4"]
 maxHealth = 5
 

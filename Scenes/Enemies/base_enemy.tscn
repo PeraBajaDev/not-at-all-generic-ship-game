@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d1l2m162yd5g"]
+[gd_scene load_steps=15 format=3 uid="uid://d1l2m162yd5g"]
 
 [ext_resource type="Texture2D" uid="uid://bq2p16abimvx7" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/enemy/sprites/enemy3.png" id="2_3nh4b"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/shootBiheaviour.gd" id="3_bmr0o"]
@@ -14,6 +14,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oanf0"]
 size = Vector2(14, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7o3g"]
+size = Vector2(22, 14)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61kco"]
 animations = [{
@@ -71,6 +74,10 @@ collision_layer = 4
 collision_mask = 35
 healthComponent = NodePath("../HealthComponent")
 invincibilityTime = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_i7o3g")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_a5msl")]
 maxHealth = 2
