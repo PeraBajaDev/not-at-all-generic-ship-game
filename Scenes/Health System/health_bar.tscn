@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://de7xdei2igtia" path="res://Assets/Sprites/pixil-frame-0 (1).png" id="1_360lu"]
 [ext_resource type="Script" path="res://Scripts/Health System/health_bar.gd" id="2_j3pbn"]
-[ext_resource type="Resource" uid="uid://jkdiwuou3uxs" path="res://Resources/player_stats.tres" id="3_5aigl"]
+[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="3_6wy4r"]
 
 [sub_resource type="Shader" id="Shader_khwdb"]
 code = "shader_type canvas_item;
@@ -45,7 +45,7 @@ size_flags_vertical = 0
 texture = ExtResource("1_360lu")
 stretch_mode = 1
 script = ExtResource("2_j3pbn")
-player = ExtResource("3_5aigl")
+player = ExtResource("3_6wy4r")
 
 [node name="CurrentHealth" type="ColorRect" parent="HealthBar"]
 modulate = Color(0, 0.79, 0.79, 1)

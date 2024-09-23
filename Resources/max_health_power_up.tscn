@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c283dtxek72rv"]
-
-[ext_resource type="PackedScene" uid="uid://clru8q7thejn7" path="res://Scenes/Power Ups/base_power_up.tscn" id="1_t8eob"]
-[ext_resource type="Resource" uid="uid://jkdiwuou3uxs" path="res://Resources/player_stats.tres" id="2_qg62y"]
-
-[node name="MaxHealthPowerUp" instance=ExtResource("1_t8eob")]
-playerStats = ExtResource("2_qg62y")
-statName = "maxHealth"
