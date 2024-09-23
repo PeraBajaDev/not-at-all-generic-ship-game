@@ -10,11 +10,11 @@
 [ext_resource type="AudioStream" uid="uid://cdl350qkgy2tj" path="res://Assets/Sounds/Music.mp3" id="6_usc3t"]
 [ext_resource type="Script" path="res://Scripts/Game/music.gd" id="7_71xjt"]
 [ext_resource type="PackedScene" uid="uid://cn03ajpo0l032" path="res://Scenes/Enemies/enemy_linear.tscn" id="7_o6jiq"]
+[ext_resource type="Resource" uid="uid://jkdiwuou3uxs" path="res://Resources/player_stats.tres" id="9_5hrfb"]
 [ext_resource type="PackedScene" uid="uid://douyg6i6140w5" path="res://Scenes/Enemies/enemy_waving.tscn" id="9_nte57"]
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
 [ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
-[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scenes/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Game/change_scene_to.gd" id="14_tudh5"]
 [ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
@@ -176,7 +176,7 @@ offset_right = -1.0
 offset_bottom = 0.0799866
 theme = ExtResource("6_an14b")
 script = ExtResource("12_niyr2")
-playerStats = ExtResource("13_hicdo")
+playerStats = ExtResource("9_5hrfb")
 
 [node name="Panel" type="PanelContainer" parent="CanvasLayer/Game Over Screen"]
 layout_mode = 1

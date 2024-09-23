@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpp30uc0osiu8"]
+[gd_scene load_steps=20 format=3 uid="uid://bpp30uc0osiu8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_23fvy"]
 [ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_p5kka"]
@@ -15,7 +15,6 @@
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
 [ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
 [ext_resource type="Script" path="res://Scripts/Game/random_pich_picker.gd" id="13_oeyvu"]
-[ext_resource type="Resource" uid="uid://jkdiwuou3uxs" path="res://Resources/player_stats.tres" id="16_73awx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsto"]
 animations = [{
@@ -47,6 +46,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oanf0"]
 size = Vector2(14, 7)
 
+[sub_resource type="GDScript" id="GDScript_g7o0c"]
+script/source = "extends Resource
+
+signal died
+
+var health: int
+var maxHealth: int
+var damage: int
+var bullet: Bullet
+var rechargeSpeed: float
+var position: Vector2
+"
+
+[sub_resource type="Resource" id="Resource_xe13u"]
+script = SubResource("GDScript_g7o0c")
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 16
 motion_mode = 1
@@ -66,10 +81,11 @@ ghosting_scene = ExtResource("6_w6ahq")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("5_6pnct")
-recoil = 0.8
+recoil = 0.6
 dash_recoil = 1.6
 
 [node name="ShootTimer" type="Timer" parent="InputHandler"]
+wait_time = 0.6
 one_shot = true
 autostart = true
 
@@ -115,4 +131,4 @@ script = ExtResource("13_oeyvu")
 
 [node name="StatsManager" type="Node" parent="."]
 script = ExtResource("13_4ma3o")
-playerStats = ExtResource("16_73awx")
+playerStats = SubResource("Resource_xe13u")
