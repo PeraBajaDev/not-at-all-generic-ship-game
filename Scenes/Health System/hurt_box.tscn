@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://tj7osi7x5h35"]
+[gd_scene load_steps=3 format=3 uid="uid://tj7osi7x5h35"]
 
 [ext_resource type="Script" path="res://Scripts/Health System/hurt_box.gd" id="1_lgch5"]
 [ext_resource type="AudioStream" uid="uid://cuhygujvaqdsl" path="res://Assets/Sounds/hit.wav" id="2_8vv0l"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_nw36j"]
 
 [node name="HurtBox" type="Area2D"]
 collision_layer = 0
@@ -11,9 +9,6 @@ collision_mask = 0
 monitorable = false
 linear_damp = 23.76
 script = ExtResource("1_lgch5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_nw36j")
 
 [node name="InvencibilityTimer" type="Timer" parent="."]
 wait_time = 0.5

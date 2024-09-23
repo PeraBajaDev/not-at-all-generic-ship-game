@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
 [ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
-[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
+[ext_resource type="Resource" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scenes/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Game/change_scene_to.gd" id="14_tudh5"]
 [ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
@@ -261,6 +261,7 @@ spawnRate = 10
 wait_time = 5.0
 autostart = true
 script = ExtResource("20_rnhry")
+minWaitTime = 1.5
 
 [node name="LaserEnemySpawer2" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(314, 10)
@@ -273,6 +274,7 @@ spawnRate = 1
 wait_time = 30.0
 autostart = true
 script = ExtResource("20_rnhry")
+minWaitTime = 10.0
 
 [node name="AsteroidSpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(140, -9)
@@ -282,4 +284,5 @@ spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 1
 
 [node name="Timer" type="Timer" parent="Spawners/AsteroidSpawner"]
+wait_time = 10.0
 autostart = true
