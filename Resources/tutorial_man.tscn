@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://pqnwkpsiil07"]
+
+[ext_resource type="Texture2D" uid="uid://o2msouylxe0s" path="res://Assets/Sprites/Misc/Warped Portraits Files/portraits with bg/base4.png" id="1_ucs8u"]
+[ext_resource type="Script" path="res://Resources/show_text_gradually.gd" id="2_o2vki"]
+[ext_resource type="AudioStream" uid="uid://c867tks4ho3j1" path="res://Assets/Sounds/peep.wav" id="3_qweep"]
+
+[sub_resource type="Gradient" id="Gradient_hf2gu"]
+interpolation_color_space = 2
+offsets = PackedFloat32Array(0.0536131, 0.247086, 0.282051, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.224794, 0.224794, 0.224794, 1, 0.224794, 0.224794, 0.224794, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_68407"]
+gradient = SubResource("Gradient_hf2gu")
+width = 100
+fill = 1
+fill_to = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mi6ki"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+bg_color = Color(0.63, 0.2142, 0.63, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.45, 0.153, 0.45, 1)
+border_blend = true
+corner_radius_top_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[node name="Tutorial Man" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 0.341176, 1, 1)
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 8
+texture = SubResource("GradientTexture2D_68407")
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 12
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 5
+
+[node name="AstronautImage" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("1_ucs8u")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+size_flags_stretch_ratio = 0.55
+theme_override_colors/font_color = Color(0.407843, 0.933333, 0.94902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.262745)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_mi6ki")
+text = "dasdads sdasda asdasdasd  assdasd asd as  asdasdasda"
+autowrap_mode = 1
+text_overrun_behavior = 2
+script = ExtResource("2_o2vki")
+textSpeed = 30
+
+[node name="Peep" type="AudioStreamPlayer" parent="MarginContainer/HBoxContainer/Label"]
+stream = ExtResource("3_qweep")
+volume_db = -20.0
+pitch_scale = 0.7

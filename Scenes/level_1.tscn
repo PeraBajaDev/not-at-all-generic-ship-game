@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=32 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
@@ -14,7 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
 [ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
-[ext_resource type="Resource" path="res://Resources/player_stats_.tres" id="13_hicdo"]
+[ext_resource type="PackedScene" uid="uid://pqnwkpsiil07" path="res://Resources/tutorial_man.tscn" id="13_h6flm"]
+[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scenes/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Game/change_scene_to.gd" id="14_tudh5"]
 [ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Menu.tscn" id="15_0n5ac"]
@@ -240,6 +241,9 @@ layout_mode = 2
 text = "Yep"
 script = ExtResource("14_jxlyw")
 
+[node name="Tutorial Man" parent="CanvasLayer" instance=ExtResource("13_h6flm")]
+visible = false
+
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
 position = Vector2(48, 92)
 
@@ -251,11 +255,11 @@ wait_time = 0.2
 [node name="EnemySpawer" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(296, 81)
 script = ExtResource("16_n3yh4")
-maxSpawnRate = 0
+maxSpawnRate = 8
 nodes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
-_range = 70.0
+_range = 80.0
 spawnPropagationDirection = Vector2(0, 1)
-spawnRate = 10
+spawnRate = 1
 
 [node name="Timer" type="Timer" parent="Spawners/EnemySpawer"]
 wait_time = 5.0
