@@ -16,7 +16,7 @@
 size = Vector2(14, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i7o3g"]
-size = Vector2(22, 14)
+size = Vector2(22, 8.66667)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_61kco"]
 animations = [{
@@ -76,7 +76,7 @@ healthComponent = NodePath("../HealthComponent")
 invincibilityTime = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, 2)
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_i7o3g")
 
 [node name="HealthComponent" parent="." instance=ExtResource("5_a5msl")]

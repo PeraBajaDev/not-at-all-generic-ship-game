@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://pqnwkpsiil07"]
+[gd_scene load_steps=9 format=3 uid="uid://pqnwkpsiil07"]
 
 [ext_resource type="Texture2D" uid="uid://o2msouylxe0s" path="res://Assets/Sprites/Misc/Warped Portraits Files/portraits with bg/base4.png" id="1_ucs8u"]
 [ext_resource type="Script" path="res://Resources/show_text_gradually.gd" id="2_o2vki"]
 [ext_resource type="AudioStream" uid="uid://c867tks4ho3j1" path="res://Assets/Sounds/peep.wav" id="3_qweep"]
+[ext_resource type="Script" path="res://Resources/change_transparency_on_player_stay.gd" id="4_cxw0d"]
 
 [sub_resource type="Gradient" id="Gradient_hf2gu"]
 interpolation_color_space = 2
@@ -29,6 +30,9 @@ border_blend = true
 corner_radius_top_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kqo0b"]
+size = Vector2(271, 82)
 
 [node name="Tutorial Man" type="MarginContainer"]
 anchors_preset = 15
@@ -82,7 +86,7 @@ theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 5
 theme_override_font_sizes/font_size = 8
 theme_override_styles/normal = SubResource("StyleBoxFlat_mi6ki")
-text = "dasdads sdasda asdasdasd  assdasd asd as  asdasdasda"
+text = "No deberías leer esto"
 autowrap_mode = 1
 text_overrun_behavior = 2
 script = ExtResource("2_o2vki")
@@ -92,3 +96,12 @@ textSpeed = 30
 stream = ExtResource("3_qweep")
 volume_db = -20.0
 pitch_scale = 0.7
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+monitorable = false
+script = ExtResource("4_cxw0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(141, 119)
+shape = SubResource("RectangleShape2D_kqo0b")

@@ -242,10 +242,9 @@ text = "Yep"
 script = ExtResource("14_jxlyw")
 
 [node name="Tutorial Man" parent="CanvasLayer" instance=ExtResource("13_h6flm")]
-visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
-position = Vector2(48, 92)
+position = Vector2(49, 63)
 
 [node name="WaveChangerTimer" parent="." instance=ExtResource("18_1lgwq")]
 wait_time = 0.2

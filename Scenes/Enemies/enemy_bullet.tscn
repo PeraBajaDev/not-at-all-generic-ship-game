@@ -6,7 +6,6 @@
 
 [node name="Movement" parent="." index="0"]
 collision_layer = 8
-collision_mask = 0
 direction = Vector2(-1, 0)
 
 [node name="AnimatedSprite2D" parent="Movement" index="0"]
