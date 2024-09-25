@@ -11,7 +11,7 @@ linear_damp = 23.76
 script = ExtResource("1_lgch5")
 
 [node name="InvencibilityTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
 autostart = true
 

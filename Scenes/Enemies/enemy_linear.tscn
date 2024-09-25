@@ -10,3 +10,6 @@ direction = Vector2(-1, 0)
 
 [node name="Timer" parent="ShootingBehavior" index="0"]
 wait_time = 1.0
+
+[node name="HurtBox" parent="." index="3"]
+invincibilityTime = 0.7

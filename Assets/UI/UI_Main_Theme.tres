@@ -1,9 +1,23 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bubfx47ynfng7"]
+[gd_resource type="Theme" load_steps=10 format=3 uid="uid://bubfx47ynfng7"]
 
 [ext_resource type="FontFile" uid="uid://boid5i5lbaq80" path="res://Assets/UI/nokiafc22.ttf" id="1_44xtv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qx4xm"]
 bg_color = Color(0.6, 0.635294, 0.772549, 0.333333)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8voha"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bhjgl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxob2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_38o00"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfpjm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t5owp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8shci"]
 
 [resource]
 default_font = ExtResource("1_44xtv")
@@ -22,3 +36,11 @@ Label/constants/line_spacing = 4
 Label/constants/outline_size = 3
 Label/constants/shadow_offset_x = -3
 Label/constants/shadow_offset_y = 3
+TabBar/font_sizes/font_size = 8
+TabBar/styles/button_highlight = SubResource("StyleBoxEmpty_8voha")
+TabBar/styles/button_pressed = SubResource("StyleBoxEmpty_bhjgl")
+TabBar/styles/tab_disabled = SubResource("StyleBoxEmpty_dxob2")
+TabBar/styles/tab_focus = SubResource("StyleBoxEmpty_38o00")
+TabBar/styles/tab_hovered = SubResource("StyleBoxEmpty_rfpjm")
+TabBar/styles/tab_selected = SubResource("StyleBoxEmpty_t5owp")
+TabBar/styles/tab_unselected = SubResource("StyleBoxEmpty_8shci")

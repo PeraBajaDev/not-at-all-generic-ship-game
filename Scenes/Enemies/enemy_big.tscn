@@ -17,7 +17,7 @@ damage = 5
 wait_time = 3.0
 
 [node name="HurtBox" parent="." index="3"]
-invincibilityTime = 1.0
+invincibilityTime = 0.1
 
 [node name="CollisionShape2D" parent="HurtBox" index="2"]
 position = Vector2(0, 1.66667)
