@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://4yphlfnh4aqu"]
+[gd_scene load_steps=19 format=3 uid="uid://4yphlfnh4aqu"]
 
-[ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_v0en6"]
-[ext_resource type="Texture2D" uid="uid://d0tewxjck801h" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/explosion/explosion.png" id="2_oervo"]
-[ext_resource type="Texture2D" uid="uid://bmhm1ts7ke2e6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/background/layered/bg-back.png" id="3_b4tah"]
+[ext_resource type="Script" path="res://display_settings_menu.gd" id="1_rq30x"]
+[ext_resource type="Script" path="res://fullscreen_checker.gd" id="2_pdg37"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ecvv"]
-bg_color = Color(0.572549, 0.827451, 1, 1)
+bg_color = Color(0, 0.0156863, 0.0941176, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -13,13 +12,40 @@ corner_radius_bottom_left = 10
 shadow_color = Color(0.188235, 0.317647, 0.509804, 1)
 shadow_size = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2qge3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b08dd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jjh8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_icdcd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e45y1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4kgb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y678c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rm3ta"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sxedt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x3qwx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urgdo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2agh5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jc5yr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wglqr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brnyf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vndux"]
 
 [node name="SettingsMenu" type="PanelContainer"]
+process_mode = 3
 anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
@@ -29,6 +55,7 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6ecvv")
+script = ExtResource("1_rq30x")
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -42,58 +69,44 @@ horizontal_alignment = 1
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_font_sizes/font_size = 8
-theme_override_styles/panel = SubResource("StyleBoxEmpty_2qge3")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_b08dd")
+theme_override_styles/tab_disabled = SubResource("StyleBoxEmpty_jjh8n")
+theme_override_styles/tabbar_background = SubResource("StyleBoxEmpty_icdcd")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_e45y1")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_q4kgb")
+theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_y678c")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_rm3ta")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
-[node name="Screen" type="VFlowContainer" parent="HBoxContainer/TabContainer"]
-visible = false
+[node name="Screen" type="CenterContainer" parent="HBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Screen" type="VFlowContainer" parent="HBoxContainer/TabContainer/Screen"]
 custom_minimum_size = Vector2(0, 90)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 last_wrap_alignment = 2
-metadata/_tab_index = 0
 
-[node name="Music" type="HBoxContainer" parent="HBoxContainer/TabContainer/Screen"]
+[node name="Fullscreen" type="HBoxContainer" parent="HBoxContainer/TabContainer/Screen/Screen"]
 layout_mode = 2
 
-[node name="Music" type="Label" parent="HBoxContainer/TabContainer/Screen/Music"]
+[node name="Fullscreen" type="CheckBox" parent="HBoxContainer/TabContainer/Screen/Screen/Fullscreen"]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 0.635294, 0, 1)
-text = "Music
-"
-horizontal_alignment = 1
-
-[node name="MusicSlider" type="HSlider" parent="HBoxContainer/TabContainer/Screen/Music"]
-layout_mode = 2
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_brnyf")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vndux")
-value = 1.0
-
-[node name="Sound" type="HBoxContainer" parent="HBoxContainer/TabContainer/Screen"]
-layout_mode = 2
-
-[node name="Music2" type="Label" parent="HBoxContainer/TabContainer/Screen/Sound"]
-layout_mode = 2
-text = "Sound
-"
-horizontal_alignment = 1
-
-[node name="SoundSlider" type="HSlider" parent="HBoxContainer/TabContainer/Screen/Sound"]
-layout_mode = 2
-value = 1.0
-
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/Screen"]
-layout_mode = 2
-text = "Close"
-
-[node name="Player1" type="Sprite2D" parent="HBoxContainer/TabContainer/Screen"]
-position = Vector2(202, 50)
-texture = ExtResource("1_v0en6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sxedt")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_x3qwx")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_urgdo")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_2agh5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_jc5yr")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wglqr")
+text = "Fullscreen"
+script = ExtResource("2_pdg37")
 
 [node name="Music & Sound" type="CenterContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -136,19 +149,9 @@ horizontal_alignment = 1
 layout_mode = 2
 value = 1.0
 
-[node name="Explosion" type="Sprite2D" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound/Sound"]
-position = Vector2(-197, 35)
-texture = ExtResource("2_oervo")
-
-[node name="Button" type="Button" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound"]
+[node name="Close" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 15)
 layout_mode = 2
-theme_override_colors/font_disabled_color = Color(1, 0.952941, 0.572549, 1)
+size_flags_horizontal = 4
+size_flags_vertical = 4
 text = "Close"
-
-[node name="Player1" type="Sprite2D" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound"]
-position = Vector2(202, 50)
-texture = ExtResource("1_v0en6")
-
-[node name="Bg-back" type="Sprite2D" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound"]
-position = Vector2(-238, -31)
-texture = ExtResource("3_b4tah")

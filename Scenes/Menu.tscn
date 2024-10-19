@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpokmu6jtm68c"]
+[gd_scene load_steps=6 format=3 uid="uid://dpokmu6jtm68c"]
 
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="1_4l6h7"]
 [ext_resource type="Texture2D" uid="uid://smmsoynhows5" path="res://Assets/Sprites/Environments/bulkhead-walls/v1/layers/bulkhead-walls-back.png" id="1_q7hir"]
 [ext_resource type="Script" path="res://Scripts/Game/menu.gd" id="2_gc4b5"]
+[ext_resource type="Script" path="res://Scenes/settings_button.gd" id="4_d32l0"]
+[ext_resource type="PackedScene" uid="uid://4yphlfnh4aqu" path="res://settings_menu.tscn" id="4_e06jm"]
 
 [node name="MainMenu" type="PanelContainer"]
 anchors_preset = 15
@@ -59,5 +61,10 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_stretch_ratio = 2.0
 text = "OPTIONS"
+script = ExtResource("4_d32l0")
+
+[node name="SettingsMenu" parent="." instance=ExtResource("4_e06jm")]
+visible = false
+layout_mode = 2
 
 [connection signal="pressed" from="Menu/HBoxContainer/Start" to="Menu" method="_on_start_pressed"]
