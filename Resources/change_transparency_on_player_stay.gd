@@ -4,7 +4,7 @@ extends Area2D
 func _ready() -> void:
 	body_entered.connect(fade)
 	body_exited.connect(opac)
-func fade(body):
+func fade(_body):
 	dialog_box.modulate.a = 0.3
-func opac(body):
+func opac(_body):
 	dialog_box.modulate.a = 1
