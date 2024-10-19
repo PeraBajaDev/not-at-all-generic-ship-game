@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=33 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
 [ext_resource type="PackedScene" uid="uid://bpp30uc0osiu8" path="res://Scenes/player.tscn" id="3_fkp4r"]
 [ext_resource type="PackedScene" uid="uid://djbeqgvnyrr42" path="res://enemy_laser.tscn" id="4_ccfxa"]
+[ext_resource type="PackedScene" uid="uid://4yphlfnh4aqu" path="res://settings_menu.tscn" id="5_vuesc"]
 [ext_resource type="PackedScene" uid="uid://c70mjikx55chm" path="res://Scenes/Enemies/spawner.tscn" id="6_8hxuw"]
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="6_an14b"]
 [ext_resource type="PackedScene" uid="uid://bo64oo2xlf4d0" path="res://Scenes/Enemies/enemy_big.tscn" id="6_qt3lo"]
@@ -143,6 +144,7 @@ position = Vector2(137, 83)
 [node name="AudioListener2D" type="AudioListener2D" parent="Misc"]
 
 [node name="Music" type="AudioStreamPlayer2D" parent="Misc"]
+process_mode = 3
 stream = ExtResource("6_usc3t")
 volume_db = -20.0
 autoplay = true
@@ -242,6 +244,9 @@ text = "Yep"
 script = ExtResource("14_jxlyw")
 
 [node name="Tutorial Man" parent="CanvasLayer" instance=ExtResource("13_h6flm")]
+
+[node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("5_vuesc")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
 position = Vector2(49, 63)
