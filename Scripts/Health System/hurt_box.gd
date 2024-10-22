@@ -18,7 +18,7 @@ func on_hurt(body: Node2D):
 	var bullet := body.get_parent() as Bullet
 	var damage: int = 1
 	if bullet:
-		body.queue_free()
 		damage = bullet.damage
+		bullet.queue_free()
 	healthComponent.harm(damage)
 	$InvencibilityTimer.start(invincibilityTime)
