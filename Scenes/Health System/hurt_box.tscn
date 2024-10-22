@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://tj7osi7x5h35"]
+[gd_scene load_steps=4 format=3 uid="uid://tj7osi7x5h35"]
 
 [ext_resource type="Script" path="res://Scripts/Health System/hurt_box.gd" id="1_lgch5"]
 [ext_resource type="AudioStream" uid="uid://cuhygujvaqdsl" path="res://Assets/Sounds/hit.wav" id="2_8vv0l"]
+[ext_resource type="Script" path="res://Scenes/Health System/hit_sound.gd" id="3_5hlh1"]
 
 [node name="HurtBox" type="Area2D"]
 collision_layer = 0
@@ -18,3 +19,4 @@ autostart = true
 [node name="HitSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8vv0l")
 volume_db = -20.0
+script = ExtResource("3_5hlh1")
