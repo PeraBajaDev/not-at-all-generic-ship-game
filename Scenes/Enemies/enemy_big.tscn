@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo64oo2xlf4d0"]
+[gd_scene load_steps=5 format=3 uid="uid://bo64oo2xlf4d0"]
 
 [ext_resource type="PackedScene" uid="uid://d1l2m162yd5g" path="res://Scenes/Enemies/base_enemy.tscn" id="1_jctct"]
 [ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="2_2l0bu"]
+[ext_resource type="Script" path="res://explode_on_die.gd" id="3_5ym6b"]
+[ext_resource type="PackedScene" uid="uid://ci5rr6i32564v" path="res://explosion_area.tscn" id="4_vn78t"]
 
 [node name="EnemyBig" instance=ExtResource("1_jctct")]
 scale = Vector2(1.5, 1.5)
@@ -24,6 +26,10 @@ position = Vector2(0, 1.66667)
 
 [node name="HealthComponent" parent="." index="4"]
 maxHealth = 5
+
+[node name="ExplodeOnDieComponent" type="Node2D" parent="HealthComponent" index="0"]
+script = ExtResource("3_5ym6b")
+explosionAreaScene = ExtResource("4_vn78t")
 
 [node name="AnimatedSprite2D" parent="." index="5"]
 self_modulate = Color(1, 0.85, 0, 1)
