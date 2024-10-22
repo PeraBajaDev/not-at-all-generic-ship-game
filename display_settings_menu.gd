@@ -7,7 +7,7 @@ func _ready() -> void:
 func on_press_close_button():
 	self.visible = false
 	get_tree().paused = false
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		self.visible = !visible
 		get_tree().paused = !get_tree().paused

@@ -1,7 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://4yphlfnh4aqu"]
+[gd_scene load_steps=21 format=3 uid="uid://4yphlfnh4aqu"]
 
 [ext_resource type="Script" path="res://display_settings_menu.gd" id="1_rq30x"]
 [ext_resource type="Script" path="res://fullscreen_checker.gd" id="2_pdg37"]
+[ext_resource type="Script" path="res://music_slider.gd" id="3_gdeqp"]
+[ext_resource type="Script" path="res://sound_slider.gd" id="4_iwegu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ecvv"]
 bg_color = Color(0, 0.0156863, 0.0941176, 1)
@@ -77,9 +79,10 @@ theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_q4kgb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_y678c")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_rm3ta")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Screen" type="CenterContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -106,7 +109,6 @@ text = "Fullscreen"
 script = ExtResource("2_pdg37")
 
 [node name="Music & Sound" type="CenterContainer" parent="HBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -118,6 +120,7 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="Music" type="HBoxContainer" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound"]
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 alignment = 1
 
@@ -129,10 +132,15 @@ text = "Music
 horizontal_alignment = 1
 
 [node name="MusicSlider" type="HSlider" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound/Music"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_brnyf")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_vndux")
-value = 1.0
+min_value = -80.0
+max_value = 0.0
+script = ExtResource("3_gdeqp")
 
 [node name="Sound" type="HBoxContainer" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound"]
 layout_mode = 2
@@ -146,8 +154,13 @@ text = "Sound
 horizontal_alignment = 1
 
 [node name="SoundSlider" type="HSlider" parent="HBoxContainer/TabContainer/Music & Sound/Music & Sound/Sound"]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-value = 1.0
+size_flags_vertical = 4
+min_value = -80.0
+max_value = -20.0
+value = -20.0
+script = ExtResource("4_iwegu")
 
 [node name="Close" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(50, 15)
