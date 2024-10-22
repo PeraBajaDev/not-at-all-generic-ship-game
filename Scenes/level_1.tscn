@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=34 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://wave_changer_timer.tscn" id="18_1lgwq"]
 [ext_resource type="Script" path="res://Scripts/Level/reduce_wave_time_on_wave_changed.gd" id="20_rnhry"]
+[ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
@@ -146,7 +147,7 @@ position = Vector2(137, 83)
 [node name="Music" type="AudioStreamPlayer2D" parent="Misc"]
 process_mode = 3
 stream = ExtResource("6_usc3t")
-volume_db = -20.0
+volume_db = -13.041
 autoplay = true
 parameters/looping = true
 script = ExtResource("7_71xjt")
@@ -284,8 +285,21 @@ autostart = true
 script = ExtResource("20_rnhry")
 minWaitTime = 10.0
 
+[node name="MisilEnemySpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
+position = Vector2(244, -27)
+nodes = Array[PackedScene]([ExtResource("25_s4lbs")])
+_range = 20.0
+spawnPropagationDirection = Vector2(0, 1)
+spawnRate = 2
+
+[node name="Timer" type="Timer" parent="Spawners/MisilEnemySpawner"]
+wait_time = 25.0
+autostart = true
+script = ExtResource("20_rnhry")
+minWaitTime = 15.0
+
 [node name="AsteroidSpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
-position = Vector2(140, -9)
+position = Vector2(128, -2)
 nodes = Array[PackedScene]([ExtResource("9_r262x")])
 _range = 30.0
 spawnPropagationDirection = Vector2(0, 1)
