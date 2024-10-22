@@ -3,7 +3,7 @@ extends Area2D
 @export var healthComponent: HealthComponent 
 
 @export var invincibilityTime: float
-
+signal hitted
 func _ready() -> void:
 	self.body_entered.connect(on_hurt)
 	
@@ -14,6 +14,7 @@ func on_hurt(body: Node2D):
 		push_warning('Falta asignar nodo health component')
 		return
 	$HitSound.play()
+	hitted.emit()
 	var bullet := body.get_parent() as Bullet
 	var damage: int = 1
 	if bullet:
