@@ -1,5 +1,4 @@
-extends AudioStreamPlayer
-
+extends Sound
 
 func _ready() -> void:
 	$"../../InputHandler".shoot.connect(on_shoot)
