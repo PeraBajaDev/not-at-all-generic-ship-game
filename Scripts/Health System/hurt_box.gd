@@ -6,6 +6,7 @@ extends Area2D
 signal hitted
 func _ready() -> void:
 	self.body_entered.connect(on_hurt)
+	healthComponent.died.connect(func(): monitoring = false)
 	
 func on_hurt(body: Node2D):
 	if not $InvencibilityTimer.is_stopped():
