@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dewd4i2egyrue"]
+[gd_scene load_steps=23 format=3 uid="uid://dewd4i2egyrue"]
 
 [ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="1_ytjgl"]
 [ext_resource type="Texture2D" uid="uid://cyh8h6e8l7qxr" path="res://Assets/Sprites/Misc/Warped shooting fx/waveform/frames/waveform1.png" id="2_oh0on"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://g6yh38uy37df" path="res://Assets/Sprites/Misc/Warped shooting fx/waveform/frames/waveform4.png" id="5_h4iur"]
 [ext_resource type="Texture2D" uid="uid://bf2s8v4ukahif" path="res://Assets/Sprites/Red!Assets.png" id="6_tdid3"]
 [ext_resource type="AudioStream" uid="uid://bfpscjanl0wev" path="res://Assets/Sounds/laser2.wav" id="7_5ifuw"]
+[ext_resource type="Script" path="res://sound.gd" id="8_0ce3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bgiv3"]
 atlas = ExtResource("6_tdid3")
@@ -294,3 +295,4 @@ autoplay = "laser"
 stream = ExtResource("7_5ifuw")
 volume_db = -10.0
 pitch_scale = 0.9
+script = ExtResource("8_0ce3o")
