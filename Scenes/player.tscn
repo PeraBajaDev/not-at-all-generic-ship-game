@@ -15,7 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
 [ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
 [ext_resource type="Script" path="res://Scripts/Game/random_pich_picker.gd" id="13_oeyvu"]
-[ext_resource type="Resource" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
+[ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsto"]
 animations = [{
