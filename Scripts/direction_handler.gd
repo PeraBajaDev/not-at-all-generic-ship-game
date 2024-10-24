@@ -1,5 +1,4 @@
-class_name Enemy
-
+class_name DirectionHandler
 extends Node
 signal direction_changed(direction)
 

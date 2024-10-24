@@ -25,4 +25,5 @@ func harm(value: int):
 	
 	if health == 0: 
 		died.emit()
-		return
+		await get_tree().create_timer(1).timeout
+		get_parent().queue_free()
