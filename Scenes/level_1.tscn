@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=36 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://wave_changer_timer.tscn" id="18_1lgwq"]
 [ext_resource type="Script" path="res://Scripts/Level/reduce_wave_time_on_wave_changed.gd" id="20_rnhry"]
+[ext_resource type="Script" path="res://Scenes/boss_spawner.gd" id="25_1xp7t"]
 [ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
 [ext_resource type="PackedScene" uid="uid://bbmonktxc1po0" path="res://final_boss.tscn" id="26_imj0p"]
 
@@ -134,8 +135,8 @@ repeat_size = Vector2(816, 0)
 autoscroll = Vector2(-40, 0)
 
 [node name="BackgroundSprite" type="Sprite2D" parent="Background/d"]
-position = Vector2(162, 22)
-scale = Vector2(1.05, 1.05)
+position = Vector2(170, 16)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_lyh68")
 
 [node name="Misc" type="Node" parent="."]
@@ -259,8 +260,7 @@ wait_time = 0.2
 position = Vector2(296, 81)
 script = ExtResource("16_n3yh4")
 maxSpawnRate = 8
-nodes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
-_range = 80.0
+spawnableScenes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
 spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 1
 
@@ -272,8 +272,7 @@ minWaitTime = 1.5
 
 [node name="LaserEnemySpawer2" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(314, 10)
-nodes = Array[PackedScene]([ExtResource("4_ccfxa")])
-_range = 50.0
+spawnableScenes = Array[PackedScene]([ExtResource("4_ccfxa")])
 spawnPropagationDirection = Vector2(1, 0)
 spawnRate = 1
 
@@ -285,8 +284,7 @@ minWaitTime = 10.0
 
 [node name="MisilEnemySpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(244, -27)
-nodes = Array[PackedScene]([ExtResource("25_s4lbs")])
-_range = 20.0
+spawnableScenes = Array[PackedScene]([ExtResource("25_s4lbs")])
 spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 2
 
@@ -298,8 +296,7 @@ minWaitTime = 15.0
 
 [node name="AsteroidSpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(128, -2)
-nodes = Array[PackedScene]([ExtResource("9_r262x")])
-_range = 30.0
+spawnableScenes = Array[PackedScene]([ExtResource("9_r262x")])
 spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 1
 
@@ -307,7 +304,10 @@ spawnRate = 1
 wait_time = 10.0
 autostart = true
 
-[node name="FinalBoss" parent="." instance=ExtResource("26_imj0p")]
-position = Vector2(230, 79)
+[node name="BossSpawner" type="Marker2D" parent="Spawners"]
+position = Vector2(231, 78)
+gizmo_extents = 111.3
+script = ExtResource("25_1xp7t")
+bossScene = ExtResource("26_imj0p")
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
