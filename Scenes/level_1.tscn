@@ -261,6 +261,7 @@ position = Vector2(296, 81)
 script = ExtResource("16_n3yh4")
 maxSpawnRate = 8
 spawnableScenes = Array[PackedScene]([ExtResource("7_o6jiq"), ExtResource("9_nte57"), ExtResource("6_qt3lo")])
+spawnRange = 70.0
 spawnPropagationDirection = Vector2(0, 1)
 spawnRate = 1
 
@@ -273,6 +274,7 @@ minWaitTime = 1.5
 [node name="LaserEnemySpawer2" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(314, 10)
 spawnableScenes = Array[PackedScene]([ExtResource("4_ccfxa")])
+spawnRange = 20.0
 spawnPropagationDirection = Vector2(1, 0)
 spawnRate = 1
 
@@ -297,7 +299,8 @@ minWaitTime = 15.0
 [node name="AsteroidSpawner" parent="Spawners" instance=ExtResource("6_8hxuw")]
 position = Vector2(128, -2)
 spawnableScenes = Array[PackedScene]([ExtResource("9_r262x")])
-spawnPropagationDirection = Vector2(0, 1)
+spawnRange = 20.0
+spawnPropagationDirection = Vector2(1, 0)
 spawnRate = 1
 
 [node name="Timer" type="Timer" parent="Spawners/AsteroidSpawner"]
