@@ -107,8 +107,10 @@ animations = [{
 }]
 
 [node name="FinalBoss" type="CharacterBody2D"]
+z_index = 3
 collision_layer = 4
 collision_mask = 0
+motion_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, 0)
