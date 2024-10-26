@@ -1,9 +1,11 @@
-extends "res://Scripts/Level/spawn_nodes.gd"
+extends Spawner
 
 @export var maxSpawnRate: int
 
-func on_wave_changed(wave: int):
-	super.on_wave_changed(wave)
-	spawnRate = wave 
-	if spawnRate > maxSpawnRate: 
+func _ready() -> void:
+	super._ready()
+	GameState.wave_changed.connect(limit_spawn_rate)
+
+func limit_spawn_rate(currentWave: int):
+	if maxSpawnRate > currentWave:
 		spawnRate = maxSpawnRate
