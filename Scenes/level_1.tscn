@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=37 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
 [ext_resource type="Texture2D" uid="uid://byvqyhmo54a7s" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/cyberpunk-corridor-foreground.png" id="2_lyh68"]
@@ -27,6 +27,7 @@
 [ext_resource type="Script" path="res://Scenes/boss_spawner.gd" id="25_1xp7t"]
 [ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
 [ext_resource type="PackedScene" uid="uid://bbmonktxc1po0" path="res://final_boss.tscn" id="26_imj0p"]
+[ext_resource type="Texture2D" uid="uid://ccqffgn55qkok" path="res://Assets/Sprites/Misc/Explosions pack/explosion-1-a/Sprites/explosion-3.png" id="27_26p4s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
@@ -308,9 +309,16 @@ wait_time = 10.0
 autostart = true
 
 [node name="BossSpawner" type="Marker2D" parent="Spawners"]
+process_mode = 3
 position = Vector2(231, 78)
 gizmo_extents = 111.3
 script = ExtResource("25_1xp7t")
 bossScene = ExtResource("26_imj0p")
+
+[node name="ScreenOccluder" type="Sprite2D" parent="Spawners/BossSpawner"]
+self_modulate = Color(0, 0, 0, 0)
+z_index = 2
+scale = Vector2(18.86, 18.86)
+texture = ExtResource("27_26p4s")
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
