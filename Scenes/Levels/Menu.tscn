@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpokmu6jtm68c"]
+[gd_scene load_steps=7 format=3 uid="uid://dpokmu6jtm68c"]
 
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="1_4l6h7"]
 [ext_resource type="Texture2D" uid="uid://smmsoynhows5" path="res://Assets/Sprites/Environments/bulkhead-walls/bulkhead-walls-back.png" id="1_q7hir"]
 [ext_resource type="Script" path="res://Scripts/Settings/menu.gd" id="2_gc4b5"]
+[ext_resource type="PackedScene" uid="uid://6p6eswf5l448" path="res://Scenes/Levels/level_1.tscn" id="4_7cra1"]
 [ext_resource type="Script" path="res://Scripts/Settings/settings_button.gd" id="4_d32l0"]
 [ext_resource type="PackedScene" uid="uid://4yphlfnh4aqu" path="res://Scenes/Levels/settings_menu.tscn" id="4_e06jm"]
 
@@ -24,6 +25,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_4l6h7")
 script = ExtResource("2_gc4b5")
+level = ExtResource("4_7cra1")
 metadata/_edit_horizontal_guides_ = [265.0, 154.0]
 metadata/_edit_vertical_guides_ = [359.0, 857.0]
 
