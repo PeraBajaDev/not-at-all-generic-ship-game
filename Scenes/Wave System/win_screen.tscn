@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfugm8eolxfn4"]
+
+[ext_resource type="PackedScene" uid="uid://pqnwkpsiil07" path="res://Scenes/tutorial_man.tscn" id="1_5l5xe"]
+[ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="1_j8wm1"]
+[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Levels/Menu.tscn" id="2_cua66"]
+
+[node name="WinScreen" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "YOU WIN!"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "GO TO MAIN MENU"
+script = ExtResource("1_j8wm1")
+scene = ExtResource("2_cua66")
+
+[node name="Tutorial Man" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_5l5xe")]
+layout_mode = 2
+filePath = "res://Assets/Text Dialogs/win_dialog.txt"
