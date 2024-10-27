@@ -17,11 +17,11 @@
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
 [ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
+[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Levels/Menu.tscn" id="13_h4qmq"]
 [ext_resource type="PackedScene" uid="uid://pqnwkpsiil07" path="res://Scenes/tutorial_man.tscn" id="13_h6flm"]
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scripts/Level/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="14_tudh5"]
-[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Levels/Menu.tscn" id="15_0n5ac"]
 [ext_resource type="Script" path="res://Scripts/Level/spawn_enemies.gd" id="16_n3yh4"]
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/Wave System/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://Scenes/Wave System/wave_changer_timer.tscn" id="18_1lgwq"]
@@ -247,7 +247,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Na, I'm Scared"
 script = ExtResource("14_tudh5")
-scene = ExtResource("15_0n5ac")
+scene = ExtResource("13_h4qmq")
 
 [node name="Yes" type="Button" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
