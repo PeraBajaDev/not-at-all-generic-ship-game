@@ -166,8 +166,8 @@ laserDamage = 3
 
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("6_2vry8")
-maxHealthLimit = 600
-maxHealth = 600
+maxHealthLimit = 1
+maxHealth = 1
 
 [node name="BossDeafeted" type="Node" parent="HealthComponent"]
 script = ExtResource("12_xq6su")
