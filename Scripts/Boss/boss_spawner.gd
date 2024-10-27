@@ -1,7 +1,7 @@
 extends Marker2D
 
 @export var bossScene: PackedScene
-const WAVE_TO_SPAWN_BOSS = 1
+const WAVE_TO_SPAWN_BOSS = 15
 @onready var screenOccluder: Node2D = $ScreenOccluder
 var boss: Node2D
 func _ready() -> void:
