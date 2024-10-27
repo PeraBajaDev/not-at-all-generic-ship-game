@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bqmqbvemuauju" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/enemy/sprites/enemy5.png" id="6_audpg"]
 [ext_resource type="Script" path="res://Scripts/Shoot System/blast_canon.gd" id="7_76nk6"]
 [ext_resource type="Script" path="res://Scripts/Player/ship_animation_controller.gd" id="9_kl2y8"]
-[ext_resource type="Script" path="res://Scripts/direction_handler.gd" id="10_xpk0x"]
+[ext_resource type="Script" path="res://Scripts/Movement/direction_handler.gd" id="10_xpk0x"]
 [ext_resource type="PackedScene" uid="uid://c3661xps5vu8h" path="res://Scenes/living_timer.tscn" id="12_ji5a5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oanf0"]

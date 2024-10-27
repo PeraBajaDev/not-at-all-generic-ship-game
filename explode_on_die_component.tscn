@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://yg0lciw5dwbx"]
-
-[ext_resource type="Script" path="res://explode_on_die.gd" id="1_cqlor"]
-
-[node name="ExplodeOnDieComponent" type="Node"]
-script = ExtResource("1_cqlor")

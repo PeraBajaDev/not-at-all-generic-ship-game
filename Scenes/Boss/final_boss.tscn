@@ -1,0 +1,221 @@
+[gd_scene load_steps=32 format=3 uid="uid://bbmonktxc1po0"]
+
+[ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="1_cr5go"]
+[ext_resource type="Texture2D" uid="uid://1gu563bcwux0" path="res://Assets/Sprites/Misc/spaceship-unit/PNG/separated sprites/spaceship-unit.png" id="2_f70x3"]
+[ext_resource type="Texture2D" uid="uid://de0pt40kvuxi" path="res://Assets/Sprites/Misc/spaceship-unit/PNG/ship-unit-with-thrusts.png" id="3_dbj47"]
+[ext_resource type="Script" path="res://Scripts/State System/state_machine.gd" id="4_aww8k"]
+[ext_resource type="Script" path="res://Scripts/Player/ship_animation_controller.gd" id="4_bxdbo"]
+[ext_resource type="Script" path="res://Scripts/State System/tackle_state.gd" id="5_6beeu"]
+[ext_resource type="Script" path="res://Scripts/Health System/modulate_on_hurt.gd" id="5_8pkql"]
+[ext_resource type="Script" path="res://Scripts/Health System/health_component.gd" id="6_2vry8"]
+[ext_resource type="Script" path="res://Scripts/State System/shooting_misil_state.gd" id="6_ko335"]
+[ext_resource type="Script" path="res://Scripts/Shoot System/laser_state.gd" id="7_uujpl"]
+[ext_resource type="PackedScene" uid="uid://cvahsligx7dpu" path="res://Scenes/Boss/boss_laser.tscn" id="8_kh80f"]
+[ext_resource type="Script" path="res://Scenes/Enemies/misil_canon.gd" id="8_u80v4"]
+[ext_resource type="PackedScene" uid="uid://badnjnrrnpjjk" path="res://Scenes/Misil/misil.tscn" id="9_hqjjm"]
+[ext_resource type="PackedScene" uid="uid://deexf8vxvud0e" path="res://Scenes/Misil/misil_hint.tscn" id="10_n331c"]
+[ext_resource type="Script" path="res://Scripts/Boss/boss_deafeted.gd" id="12_xq6su"]
+[ext_resource type="Script" path="res://Scripts/Movement/direction_handler.gd" id="14_qydb7"]
+[ext_resource type="Texture2D" uid="uid://b5axtfk6dw7xd" path="res://Assets/Sprites/Misc/explosion-1-b-1.png" id="15_j2wks"]
+[ext_resource type="Script" path="res://Scripts/Health System/increase_particles_on_health_decreases.gd" id="16_8oaot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fptoj"]
+size = Vector2(23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x033g"]
+atlas = ExtResource("2_f70x3")
+region = Rect2(0, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyjsn"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(0, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fbc8"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(106, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjvk2"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(212, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rexwk"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(318, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdrec"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(424, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlvfe"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(530, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7qihl"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(636, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epgdu"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(742, 0, 106, 77)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b87on"]
+atlas = ExtResource("3_dbj47")
+region = Rect2(0, 0, 106, 77)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h46ri"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x033g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyjsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fbc8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjvk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rexwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdrec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlvfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7qihl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epgdu")
+}],
+"loop": true,
+"name": &"down",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b87on")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_lw5hj"]
+offsets = PackedFloat32Array(0.0130719, 0.346405, 0.535948)
+colors = PackedColorArray(1, 1, 1, 1, 0.61325, 0.66, 0.099, 1, 1, 1, 1, 1)
+
+[node name="FinalBoss" type="CharacterBody2D"]
+z_index = 3
+collision_layer = 4
+collision_mask = 0
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 0)
+scale = Vector2(2, 2.03638)
+shape = SubResource("RectangleShape2D_fptoj")
+
+[node name="HurtBox" parent="." node_paths=PackedStringArray("healthComponent") instance=ExtResource("1_cr5go")]
+scale = Vector2(2, 2)
+collision_mask = 3
+healthComponent = NodePath("../HealthComponent")
+invincibilityTime = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(1.5, 0)
+scale = Vector2(1, 1.01819)
+shape = SubResource("RectangleShape2D_fptoj")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("shipHandler", "healthComponent")]
+sprite_frames = SubResource("SpriteFrames_h46ri")
+animation = &"up"
+flip_h = true
+script = ExtResource("4_bxdbo")
+shipHandler = NodePath("../Direction_handler")
+healthComponent = NodePath("../HealthComponent")
+
+[node name="ModulateOnHurt" type="Node" parent="AnimatedSprite" node_paths=PackedStringArray("healthComponent")]
+script = ExtResource("5_8pkql")
+healthComponent = NodePath("../../HealthComponent")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("4_aww8k")
+
+[node name="TackleState" type="Node" parent="StateMachine"]
+script = ExtResource("5_6beeu")
+
+[node name="LaunchMisilState" type="Node" parent="StateMachine" node_paths=PackedStringArray("misilHint")]
+script = ExtResource("6_ko335")
+misilHint = NodePath("../../MisilHint")
+
+[node name="LaserState" type="Node" parent="StateMachine" node_paths=PackedStringArray("laserCanon")]
+script = ExtResource("7_uujpl")
+laserScene = ExtResource("8_kh80f")
+laserCanon = NodePath("../../laser_canon")
+laserDamage = 3
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("6_2vry8")
+maxHealthLimit = 600
+maxHealth = 600
+
+[node name="BossDeafeted" type="Node" parent="HealthComponent"]
+script = ExtResource("12_xq6su")
+
+[node name="misil_canon" type="Node2D" parent="." node_paths=PackedStringArray("misilHint", "shooterNode")]
+position = Vector2(-42, 22)
+script = ExtResource("8_u80v4")
+misilHint = NodePath("../MisilHint")
+bullet_scene = ExtResource("9_hqjjm")
+shooterNode = NodePath("../StateMachine/LaunchMisilState")
+damage = 1
+
+[node name="laser_canon" type="Node2D" parent="."]
+position = Vector2(-42, 22)
+
+[node name="MisilHint" parent="." instance=ExtResource("10_n331c")]
+visible = false
+is_always_seeking = true
+
+[node name="Direction_handler" type="Node" parent="."]
+script = ExtResource("14_qydb7")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." node_paths=PackedStringArray("healthComponent")]
+modulate = Color(1, 0.942, 0.42, 1)
+amount = 1
+lifetime = 0.5
+preprocess = 2.0
+speed_scale = 0.6
+explosiveness = 0.02
+randomness = 1.0
+lifetime_randomness = 0.72
+texture = ExtResource("15_j2wks")
+emission_shape = 3
+emission_rect_extents = Vector2(40, 10)
+spread = 20.0
+initial_velocity_min = 20.0
+initial_velocity_max = 210.0
+angular_velocity_min = 94.95
+angular_velocity_max = 187.2
+orbit_velocity_max = 1.0
+damping_max = 2.0
+scale_amount_min = 0.01
+scale_amount_max = 0.2
+color = Color(1, 0.34, 0.34, 1)
+color_ramp = SubResource("Gradient_lw5hj")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+anim_speed_min = 24.32
+anim_speed_max = 65.66
+script = ExtResource("16_8oaot")
+healthComponent = NodePath("../HealthComponent")

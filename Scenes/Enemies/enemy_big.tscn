@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://d1l2m162yd5g" path="res://Scenes/Enemies/base_enemy.tscn" id="1_jctct"]
 [ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="2_2l0bu"]
-[ext_resource type="Script" path="res://explode_on_die.gd" id="3_5ym6b"]
-[ext_resource type="PackedScene" uid="uid://ci5rr6i32564v" path="res://explosion_area.tscn" id="4_vn78t"]
+[ext_resource type="Script" path="res://Scripts/Health System/explode_on_die.gd" id="3_5ym6b"]
+[ext_resource type="PackedScene" uid="uid://ci5rr6i32564v" path="res://Scenes/Explosion System/explosion_area.tscn" id="4_vn78t"]
 
 [node name="EnemyBig" instance=ExtResource("1_jctct")]
 scale = Vector2(1.5, 1.5)

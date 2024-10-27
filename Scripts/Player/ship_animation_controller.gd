@@ -5,7 +5,7 @@ extends AnimatedSprite2D
 
 const HIT_EFFECT = preload("res://Scenes/Power Ups/hit_effect.tscn")
 func _ready() -> void:
-	healthComponent.died.connect(on_died)
+	healthComponent.dying.connect(on_dying)
 	shipHandler.direction_changed.connect(on_direction_change)
 	healthComponent.damaged.connect(on_hit)
 
@@ -23,6 +23,5 @@ func on_direction_change(direction):
 	else:
 		animation = 'default'
 		
-func on_died():
+func on_dying():
 	modulate = 'red'
-	
