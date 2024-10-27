@@ -11,6 +11,7 @@ var health: int:
 signal damaged
 signal maxHealthIncremented
 signal died
+signal dying
 
 func _ready() -> void:
 	health = maxHealth
@@ -24,6 +25,7 @@ func harm(value: int):
 	damaged.emit()
 	
 	if health == 0: 
+		dying.emit()
+		await get_tree().create_timer(0.5).timeout
 		died.emit()
-		await get_tree().create_timer(1).timeout
 		get_parent().queue_free()

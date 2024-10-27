@@ -7,7 +7,7 @@ extends Node2D
 @export var spawnRate: int 
 var aviablesScenes: Array[PackedScene] = []
 var aviableNodeIndex := 0
-
+var disabled := false
 func _ready() -> void:
 	assert(has_node("Timer"), 'El nodo spawner necesita un timer')
 	assert(not $Timer.autostart, 'El nodo timer debe auto inciciarce')
@@ -15,6 +15,7 @@ func _ready() -> void:
 	GameState.wave_changed.connect(add_aviable_node)
 	
 func spawn_node():
+	if disabled: return
 	for n in range(randi_range(1, spawnRate)):
 		var node = aviablesScenes.pick_random().instantiate()
 		node.position = self.position

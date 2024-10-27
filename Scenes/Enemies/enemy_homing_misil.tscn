@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://d1l2m162yd5g" path="res://Scenes/Enemies/base_enemy.tscn" id="1_q20yg"]
 [ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="2_mw417"]
 [ext_resource type="Texture2D" uid="uid://brsyq5uwnfgby" path="res://Assets/Sprites/enemy_misil.png" id="3_deqmk"]
-[ext_resource type="PackedScene" uid="uid://deexf8vxvud0e" path="res://misil_hint.tscn" id="3_kkk8a"]
+[ext_resource type="PackedScene" uid="uid://deexf8vxvud0e" path="res://Scenes/Misil/misil_hint.tscn" id="3_kkk8a"]
 [ext_resource type="Script" path="res://Scenes/Enemies/misil_canon.gd" id="3_sh0qk"]
-[ext_resource type="PackedScene" uid="uid://badnjnrrnpjjk" path="res://Scripts/Shoot System/misil.tscn" id="4_c052q"]
-[ext_resource type="Script" path="res://explode_on_die.gd" id="6_1c58x"]
-[ext_resource type="PackedScene" uid="uid://ci5rr6i32564v" path="res://explosion_area.tscn" id="7_p05cp"]
+[ext_resource type="PackedScene" uid="uid://badnjnrrnpjjk" path="res://Scenes/Misil/misil.tscn" id="4_c052q"]
+[ext_resource type="Script" path="res://Scripts/Health System/explode_on_die.gd" id="6_1c58x"]
+[ext_resource type="PackedScene" uid="uid://ci5rr6i32564v" path="res://Scenes/Explosion System/explosion_area.tscn" id="7_p05cp"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2a6qj"]
 animations = [{
@@ -51,7 +51,7 @@ misilHint = NodePath("../MisilHint")
 bullet_scene = ExtResource("4_c052q")
 
 [node name="Timer" parent="ShootingBehavior" index="0"]
-wait_time = 1.0
+wait_time = 2.0
 
 [node name="ExplodeOnDieComponent" type="Node2D" parent="HealthComponent" index="0"]
 script = ExtResource("6_1c58x")

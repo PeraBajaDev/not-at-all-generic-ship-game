@@ -13,16 +13,20 @@ config_version=5
 config/name="Not at all generic ship game"
 config/description="This game is a practice for my programming abilities"
 config/version="0.1"
-run/main_scene="res://Scenes/Menu.tscn"
+run/main_scene="res://Scenes/Levels/Menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://Assets/Images/Black_Modern_Vlogger_YouTube_Banner__1_-removebg-preview.png"
 config/icon="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png"
 
+[audio]
+
+buses/default_bus_layout="res://Resources/default_bus_layout.tres"
+
 [autoload]
 
-Music="*res://Scripts/Game/music.gd"
-GameState="*res://Scripts/Game/game_state.gd"
-Fullscreen="*res://Scripts/Game/fullscreen.gd"
+Music="*res://Scripts/Globals/music.gd"
+GameState="*res://Scripts/Globals/game_state.gd"
+Fullscreen="*res://Scripts/Globals/fullscreen.gd"
 
 [display]
 
