@@ -294,3 +294,4 @@ autoplay = "laser"
 stream = ExtResource("7_5ifuw")
 volume_db = -10.0
 pitch_scale = 0.9
+bus = &"Sound"
