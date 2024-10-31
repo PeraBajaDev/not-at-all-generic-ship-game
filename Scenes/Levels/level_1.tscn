@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=38 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Script" path="res://Scripts/Boss/change_to_win_scene.gd" id="1_d0cgc"]
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://bx34np1ogx3bh" path="res://Scenes/Power Ups/asteroid.tscn" id="9_r262x"]
 [ext_resource type="PackedScene" uid="uid://djmbea10prvi0" path="res://Scenes/Health System/health_bar.tscn" id="12_4llbw"]
 [ext_resource type="Script" path="res://Scripts/Level/show_game_over_screen.gd" id="12_niyr2"]
-[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Levels/Menu.tscn" id="13_h4qmq"]
 [ext_resource type="PackedScene" uid="uid://pqnwkpsiil07" path="res://Scenes/tutorial_man.tscn" id="13_h6flm"]
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scripts/Level/reload_screen.gd" id="14_jxlyw"]
@@ -30,7 +29,6 @@
 [ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
 [ext_resource type="PackedScene" uid="uid://bbmonktxc1po0" path="res://Scenes/Boss/final_boss.tscn" id="26_imj0p"]
 [ext_resource type="Texture2D" uid="uid://ccqffgn55qkok" path="res://Assets/Sprites/Misc/explosion-3.png" id="27_26p4s"]
-[ext_resource type="PackedScene" uid="uid://dfugm8eolxfn4" path="res://Scenes/Wave System/win_screen.tscn" id="31_6a1bo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
@@ -247,7 +245,7 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Na, I'm Scared"
 script = ExtResource("14_tudh5")
-scene = ExtResource("13_h4qmq")
+scenePath = "res://Scenes/Levels/Menu.tscn"
 
 [node name="Yes" type="Button" parent="CanvasLayer/Game Over Screen/Panel/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 0)
@@ -332,4 +330,3 @@ texture = ExtResource("27_26p4s")
 
 [node name="SceneChanger" type="Node" parent="."]
 script = ExtResource("1_d0cgc")
-winScene = ExtResource("31_6a1bo")
