@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpokmu6jtm68c"]
+[gd_scene load_steps=7 format=3 uid="uid://dpokmu6jtm68c"]
 
 [ext_resource type="Theme" uid="uid://bubfx47ynfng7" path="res://Assets/UI/UI_Main_Theme.tres" id="1_4l6h7"]
 [ext_resource type="Texture2D" uid="uid://smmsoynhows5" path="res://Assets/Sprites/Environments/bulkhead-walls/bulkhead-walls-back.png" id="1_q7hir"]
 [ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="3_4c6ba"]
+[ext_resource type="Script" path="res://Scenes/Levels/exit_game.gd" id="3_keu3f"]
 [ext_resource type="Script" path="res://Scripts/Settings/settings_button.gd" id="4_d32l0"]
 [ext_resource type="PackedScene" uid="uid://4yphlfnh4aqu" path="res://Scenes/Levels/settings_menu.tscn" id="4_e06jm"]
 
@@ -46,6 +47,7 @@ size_flags_horizontal = 6
 size_flags_stretch_ratio = 2.0
 text = "EXIT
 "
+script = ExtResource("3_keu3f")
 
 [node name="Start" type="Button" parent="Menu/HBoxContainer"]
 custom_minimum_size = Vector2(50, 20)
@@ -67,6 +69,3 @@ script = ExtResource("4_d32l0")
 [node name="SettingsMenu" parent="." instance=ExtResource("4_e06jm")]
 visible = false
 layout_mode = 2
-
-[connection signal="pressed" from="Menu/HBoxContainer/Exit" to="Menu" method="_on_exit_pressed"]
-[connection signal="pressed" from="Menu/HBoxContainer/Start" to="Menu" method="_on_start_pressed"]
