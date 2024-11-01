@@ -17,6 +17,7 @@ run/main_scene="res://Scenes/Levels/Menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 boot_splash/image="res://Assets/Images/Black_Modern_Vlogger_YouTube_Banner__1_-removebg-preview.png"
 config/icon="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png"
+config/windows_native_icon="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png"
 
 [audio]
 
