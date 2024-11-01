@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfugm8eolxfn4"]
+[gd_scene load_steps=3 format=3 uid="uid://dfugm8eolxfn4"]
 
 [ext_resource type="PackedScene" uid="uid://pqnwkpsiil07" path="res://Scenes/tutorial_man.tscn" id="1_5l5xe"]
 [ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="1_j8wm1"]
-[ext_resource type="PackedScene" uid="uid://dpokmu6jtm68c" path="res://Scenes/Levels/Menu.tscn" id="2_de4du"]
 
 [node name="WinScreen" type="Panel"]
 anchors_preset = 15
@@ -36,7 +35,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "GO TO MAIN MENU"
 script = ExtResource("1_j8wm1")
-scene = ExtResource("2_de4du")
+scenePath = "res://Scenes/Levels/Menu.tscn"
 
 [node name="Tutorial Man" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_5l5xe")]
 layout_mode = 2
