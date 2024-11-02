@@ -27,7 +27,6 @@ buses/default_bus_layout="res://Resources/default_bus_layout.tres"
 
 Music="*res://Scripts/Globals/music.gd"
 GameState="*res://Scripts/Globals/game_state.gd"
-Fullscreen="*res://Scripts/Globals/fullscreen.gd"
 
 [display]
 
