@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=39 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Script" path="res://Scripts/Boss/change_to_win_scene.gd" id="1_d0cgc"]
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scripts/Level/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="14_tudh5"]
+[ext_resource type="Texture2D" uid="uid://cp14pakmqihc0" path="res://Assets/Sprites/tile_0576.png" id="15_rpe2r"]
 [ext_resource type="Script" path="res://Scripts/Level/spawn_enemies.gd" id="16_n3yh4"]
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/Wave System/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://Scenes/Wave System/wave_changer_timer.tscn" id="18_1lgwq"]
@@ -178,6 +179,11 @@ vertical_alignment = 1
 
 [node name="Tutorial Man" parent="CanvasLayer" instance=ExtResource("13_h6flm")]
 filePath = "res://Assets/Text Dialogs/tutorial_dialog.txt"
+
+[node name="skip" type="Sprite2D" parent="CanvasLayer/Tutorial Man"]
+position = Vector2(261.5, 129)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("15_rpe2r")
 
 [node name="Game Over Screen" type="Control" parent="CanvasLayer"]
 visible = false

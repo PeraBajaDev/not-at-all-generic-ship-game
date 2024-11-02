@@ -12,7 +12,7 @@ var direction : Vector2
 func _process(_delta: float) -> void:
 	direction = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
 	direction_changed.emit(direction)
-	if Input.is_action_pressed("ui_accept"):
+	if Input.is_action_pressed("player_shoot"):
 		if $ShootTimer.is_stopped(): 
 			shoot.emit()
 			$ShootTimer.start(recoil)
