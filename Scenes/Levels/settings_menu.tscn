@@ -82,10 +82,9 @@ theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_q4kgb")
 theme_override_styles/tab_hovered = SubResource("StyleBoxEmpty_g5w8y")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_rm3ta")
 tab_alignment = 1
-current_tab = 1
+current_tab = 0
 
 [node name="Screen" type="CenterContainer" parent="HBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -112,6 +111,7 @@ text = "Fullscreen"
 script = ExtResource("2_pdg37")
 
 [node name="Music & Sound" type="CenterContainer" parent="HBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
