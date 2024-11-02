@@ -6,9 +6,12 @@ var tween: Tween
 @onready var label: Label = $MarginContainer/HBoxContainer/Label
 @export var textSlownes: int = 2
 @export var filePath: String
+var skipped := false
 func _ready() -> void:
 	for line in get_dialog_txt():
 		label.text = line
+		if skipped:
+			continue
 		await talk()
 	self.hide()
 func talk() -> void:
@@ -35,3 +38,7 @@ func showText():
 func get_dialog_txt():
 	var file = FileAccess.open(filePath, FileAccess.READ)
 	return file.get_as_text().split('\n')
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		skipped = true
