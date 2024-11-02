@@ -22,6 +22,8 @@ shadow_size = 5
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e45y1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q4kgb"]
+content_margin_left = 10.0
+content_margin_right = 10.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5w8y"]
 content_margin_left = 10.0
