@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://6p6eswf5l448"]
+[gd_scene load_steps=50 format=3 uid="uid://6p6eswf5l448"]
 
 [ext_resource type="Script" path="res://Scripts/Boss/change_to_win_scene.gd" id="1_d0cgc"]
 [ext_resource type="Texture2D" uid="uid://dj433m6cdr5r7" path="res://Assets/Sprites/Environments/cyberpunk-corridor-files/PNG/back.png" id="1_dtlmu"]
@@ -34,6 +34,9 @@
 [ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
 [ext_resource type="PackedScene" uid="uid://bbmonktxc1po0" path="res://Scenes/Boss/final_boss.tscn" id="26_imj0p"]
 [ext_resource type="Texture2D" uid="uid://ccqffgn55qkok" path="res://Assets/Sprites/Misc/explosion-3.png" id="27_26p4s"]
+[ext_resource type="Texture2D" uid="uid://cgd76k4euj7uq" path="res://Assets/Sprites/arrow.png" id="30_tny1i"]
+[ext_resource type="Script" path="res://Scenes/Levels/play_animation.gd" id="31_7trpg"]
+[ext_resource type="PackedScene" uid="uid://c3661xps5vu8h" path="res://Scenes/living_timer.tscn" id="31_dv1ro"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ttt8a"]
 normal = Vector2(0, 1)
@@ -441,6 +444,36 @@ texture = ExtResource("27_26p4s")
 
 [node name="Player" parent="." instance=ExtResource("3_fkp4r")]
 position = Vector2(46, 56)
+
+[node name="Node2D" type="Node2D" parent="Player"]
+
+[node name="Arrow" type="Sprite2D" parent="Player/Node2D"]
+position = Vector2(0, -16)
+texture = ExtResource("30_tny1i")
+
+[node name="Arrow2" type="Sprite2D" parent="Player/Node2D"]
+position = Vector2(20, 0)
+rotation = 1.57079
+texture = ExtResource("30_tny1i")
+
+[node name="Arrow3" type="Sprite2D" parent="Player/Node2D"]
+position = Vector2(0, 18)
+rotation = 3.14159
+texture = ExtResource("30_tny1i")
+
+[node name="Arrow4" type="Sprite2D" parent="Player/Node2D"]
+position = Vector2(-20, 1)
+rotation = -1.5708
+texture = ExtResource("30_tny1i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Node2D"]
+libraries = {
+"": SubResource("AnimationLibrary_x5hnp")
+}
+script = ExtResource("31_7trpg")
+
+[node name="LivingTimer" parent="Player/Node2D" instance=ExtResource("31_dv1ro")]
+wait_time = 5.0
 
 [node name="SceneChanger" type="Node" parent="."]
 script = ExtResource("1_d0cgc")
