@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bpp30uc0osiu8"]
+[gd_scene load_steps=22 format=3 uid="uid://bpp30uc0osiu8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_23fvy"]
 [ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_p5kka"]
@@ -57,8 +57,7 @@ collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_23fvy")
 max_speed = 100.0
-acceleration = 100
-friction = 200
+acceleration = 300
 dash_force = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("shipHandler", "healthComponent")]

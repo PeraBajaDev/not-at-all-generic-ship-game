@@ -16,9 +16,9 @@ func on_hit():
 	print(hit_instance.position, hit_instance.global_position, hit_instance)
 
 func on_direction_change(direction):
-	if direction.y < 0:
+	if direction.y < -0.5:
 		animation = 'up'
-	elif direction.y > 0:
+	elif direction.y > 0.5:
 		animation = 'down'
 	else:
 		animation = 'default'
