@@ -21,10 +21,14 @@
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="13_hicdo"]
 [ext_resource type="Script" path="res://Scripts/Level/reload_screen.gd" id="14_jxlyw"]
 [ext_resource type="Script" path="res://Scripts/Settings/change_scene_to.gd" id="14_tudh5"]
-[ext_resource type="Texture2D" uid="uid://cp14pakmqihc0" path="res://Assets/Sprites/tile_0576.png" id="15_rpe2r"]
+[ext_resource type="Texture2D" uid="uid://cp14pakmqihc0" path="res://Assets/Sprites/enter.png" id="15_rpe2r"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="16_5mrfd"]
+[ext_resource type="Script" path="res://Scenes/Levels/virtual_control.gd" id="16_j3qft"]
 [ext_resource type="Script" path="res://Scripts/Level/spawn_enemies.gd" id="16_n3yh4"]
+[ext_resource type="Texture2D" uid="uid://bdevk57x2t037" path="res://Assets/Sprites/tactil-button.png" id="17_0ywvl"]
 [ext_resource type="PackedScene" uid="uid://cs38xfq8w7x5y" path="res://Scenes/Wave System/wave_message.tscn" id="17_rctls"]
 [ext_resource type="PackedScene" uid="uid://cjk73wqk1redf" path="res://Scenes/Wave System/wave_changer_timer.tscn" id="18_1lgwq"]
+[ext_resource type="Texture2D" uid="uid://cb08g70nipi4u" path="res://Assets/Sprites/tactil-buitton-pressed.png" id="18_awy6e"]
 [ext_resource type="Script" path="res://Scripts/Level/reduce_wave_time_on_wave_changed.gd" id="20_rnhry"]
 [ext_resource type="Script" path="res://Scripts/Boss/boss_spawner.gd" id="25_1xp7t"]
 [ext_resource type="PackedScene" uid="uid://cm6kk6kofrroe" path="res://Scenes/Enemies/enemy_homing_misil.tscn" id="25_s4lbs"]
@@ -95,6 +99,71 @@ tracks/1/keys = {
 _data = {
 "RESET": SubResource("Animation_o6bw6"),
 "Waving": SubResource("Animation_3rvqq")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_thq7b"]
+radius = 15.0
+
+[sub_resource type="Animation" id="Animation_0is48"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0g315"]
+resource_name = "expand"
+length = 1.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.633333, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.4, 1.4), Vector2(1.6, 1.6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.3, 0.633333, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0.380392), Color(1, 1, 1, 0.556863), Color(1, 1, 1, 0.815686), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x5hnp"]
+_data = {
+"RESET": SubResource("Animation_0is48"),
+"expand": SubResource("Animation_0g315")
 }
 
 [node name="Level 1" type="Node2D"]
@@ -261,6 +330,44 @@ script = ExtResource("14_jxlyw")
 
 [node name="SettingsMenu" parent="CanvasLayer" instance=ExtResource("5_vuesc")]
 visible = false
+
+[node name="VirtualControl" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("16_j3qft")
+
+[node name="Virtual Joystick" parent="CanvasLayer/VirtualControl" instance=ExtResource("16_5mrfd")]
+modulate = Color(1, 1, 1, 0.415686)
+layout_mode = 1
+offset_top = 17.0
+offset_right = 500.0
+offset_bottom = 517.0
+scale = Vector2(0.2, 0.2)
+pressed_color = Color(0.850555, 0.727084, 0.509741, 1)
+clampzone_size = 15.0
+joystick_mode = 1
+visibility_mode = 1
+
+[node name="TouchScreenButtonShoot" type="TouchScreenButton" parent="CanvasLayer/VirtualControl"]
+modulate = Color(1, 1, 0.611765, 0.321569)
+position = Vector2(189, 113)
+scale = Vector2(2, 2)
+texture_normal = ExtResource("17_0ywvl")
+texture_pressed = ExtResource("18_awy6e")
+shape = SubResource("CircleShape2D_thq7b")
+action = "player_shoot"
+visibility_mode = 1
+
+[node name="TouchScreenButtonDash" type="TouchScreenButton" parent="CanvasLayer/VirtualControl"]
+modulate = Color(0.992157, 0.607843, 0.384314, 0.470588)
+position = Vector2(236, 92)
+texture_normal = ExtResource("17_0ywvl")
+texture_pressed = ExtResource("18_awy6e")
+shape = SubResource("CircleShape2D_thq7b")
+action = "player_dash"
+visibility_mode = 1
 
 [node name="WaveChangerTimer" parent="." instance=ExtResource("18_1lgwq")]
 wait_time = 0.2
