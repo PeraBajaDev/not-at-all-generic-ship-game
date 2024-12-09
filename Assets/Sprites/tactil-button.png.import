@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp14pakmqihc0"
-path="res://.godot/imported/tile_0576.png-aa9cc32db364a0516fe05c8e4a11e44c.ctex"
+uid="uid://bdevk57x2t037"
+path="res://.godot/imported/tactil-button.png-409b73f52f4ac5474f867cc61fbb46b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/tile_0576.png"
-dest_files=["res://.godot/imported/tile_0576.png-aa9cc32db364a0516fe05c8e4a11e44c.ctex"]
+source_file="res://Assets/Sprites/tactil-button.png"
+dest_files=["res://.godot/imported/tactil-button.png-409b73f52f4ac5474f867cc61fbb46b9.ctex"]
 
 [params]
 
