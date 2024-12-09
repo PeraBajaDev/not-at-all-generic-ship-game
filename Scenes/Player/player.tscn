@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/Shoot System/blast_canon.gd" id="6_sepa4"]
 [ext_resource type="PackedScene" uid="uid://cyb4p3beebu8t" path="res://Scenes/Player/ghosting.tscn" id="6_w6ahq"]
 [ext_resource type="Script" path="res://Scripts/Player/dash_ghosting.gd" id="6_xuwfq"]
+[ext_resource type="Script" path="res://Scenes/Player/show_dash_is_charged.gd" id="8_8hksi"]
 [ext_resource type="Script" path="res://Scripts/Health System/health_component.gd" id="8_f4i0f"]
 [ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="8_k8dlb"]
 [ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="8_p3dk5"]
@@ -71,6 +72,10 @@ healthComponent = NodePath("../HealthComponent")
 script = ExtResource("6_xuwfq")
 ghosting_scene = ExtResource("6_w6ahq")
 inputHandler = NodePath("../../InputHandler")
+
+[node name="DashState" type="Node" parent="AnimatedSprite2D" node_paths=PackedStringArray("dashTimer")]
+script = ExtResource("8_8hksi")
+dashTimer = NodePath("../../InputHandler/DashTimer")
 
 [node name="InputHandler" type="Node" parent="."]
 script = ExtResource("5_6pnct")
