@@ -40,5 +40,5 @@ func get_dialog_txt():
 	return file.get_as_text().split('\n')
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("skip_dialog"):
 		skipped = true
