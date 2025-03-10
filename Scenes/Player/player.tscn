@@ -56,8 +56,9 @@ size = Vector2(20, 14)
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_23fvy")
-max_speed = 100.0
-acceleration = 300
+max_speed = 150.0
+acceleration = 500
+friction = 500
 dash_force = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." node_paths=PackedStringArray("shipHandler", "healthComponent")]
