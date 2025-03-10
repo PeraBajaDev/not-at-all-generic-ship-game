@@ -95,7 +95,7 @@ autostart = true
 [node name="BlastCanon" type="Node2D" parent="." node_paths=PackedStringArray("shooterNode")]
 position = Vector2(12, 0)
 script = ExtResource("6_sepa4")
-normal_bullet_scene = ExtResource("8_p3dk5")
+bullet_scene = ExtResource("8_p3dk5")
 shooterNode = NodePath("../InputHandler")
 damage = 1
 
