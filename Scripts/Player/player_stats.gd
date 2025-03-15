@@ -1,6 +1,7 @@
 class_name PlayerStats
 extends Resource
 
+@warning_ignore("unused_signal")
 signal died
 
 var health: int

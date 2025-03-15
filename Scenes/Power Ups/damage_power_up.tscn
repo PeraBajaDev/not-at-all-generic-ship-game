@@ -14,8 +14,6 @@ script = ExtResource("2_iw244")
 frame = 2
 
 [node name="DisplayInfo" parent="." index="3"]
-offset_top = -15.0
 offset_right = 38.0
-offset_bottom = 8.0
 text = "+1 Damage"
 label_settings = SubResource("LabelSettings_tg1vp")

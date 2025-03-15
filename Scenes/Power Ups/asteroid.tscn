@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bx34np1ogx3bh"]
+[gd_scene load_steps=10 format=3 uid="uid://bx34np1ogx3bh"]
 
 [ext_resource type="Script" path="res://Scripts/Movement/deccelerate_movement.gd" id="1_da4vl"]
 [ext_resource type="Texture2D" uid="uid://f1a3gperj32" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/asteroids/asteroid.png" id="2_s4eos"]
 [ext_resource type="Script" path="res://Scripts/Power Ups/asteroid.gd" id="3_hyiyl"]
-[ext_resource type="PackedScene" uid="uid://3ul3f4y267sw" path="res://Scenes/Power Ups/health_power_up.tscn" id="4_0h6vh"]
 [ext_resource type="PackedScene" uid="uid://cchdm6nj2rb4k" path="res://Scenes/Power Ups/bullet_spread_power_up.tscn" id="4_lybf4"]
 [ext_resource type="PackedScene" uid="uid://dvpra5yuirwfs" path="res://Scenes/Power Ups/damage_power_up.tscn" id="5_tfj4e"]
-[ext_resource type="PackedScene" uid="uid://07h50uw1jdjd" path="res://Scenes/Power Ups/recharge_speed_power_up.tscn" id="6_ys8j8"]
+[ext_resource type="PackedScene" uid="uid://bw16rio04v6dx" path="res://misil_power_up.tscn" id="8_6ypda"]
 [ext_resource type="Script" path="res://Scenes/Power Ups/random_direction.gd" id="8_bditw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nqt27"]
@@ -31,7 +30,7 @@ collision_layer = 32
 collision_mask = 2
 monitorable = false
 script = ExtResource("3_hyiyl")
-powerUpsScenes = Array[PackedScene]([ExtResource("4_lybf4"), ExtResource("5_tfj4e"), ExtResource("4_0h6vh"), ExtResource("6_ys8j8")])
+powerUpsScenes = Array[PackedScene]([ExtResource("5_tfj4e"), ExtResource("8_6ypda"), ExtResource("4_lybf4")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0.5, 0)
