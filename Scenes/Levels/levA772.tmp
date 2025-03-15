@@ -444,7 +444,7 @@ spawnPropagationDirection = Vector2(1, 0)
 spawnRate = 1
 
 [node name="Timer" type="Timer" parent="Spawners/AsteroidSpawner"]
-wait_time = 15.0
+wait_time = 5.0
 autostart = true
 
 [node name="BossSpawner" type="Marker2D" parent="Spawners"]

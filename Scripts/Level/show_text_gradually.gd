@@ -1,5 +1,6 @@
 extends Control
 
+@warning_ignore("unused_signal")
 signal on_dialog_finished
 
 var tween: Tween

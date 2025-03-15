@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var powerUpsScenes: Array[PackedScene] 
-const PROBABILITIES: Array[float] = [0.06, 0.2, 0.8, 0.9]
+const PROBABILITIES: Array[float] = [0.06, 0.2, 0.8, 0.9, 0.1]
 @onready var asteroid = get_parent()
 
 func _ready() -> void:
