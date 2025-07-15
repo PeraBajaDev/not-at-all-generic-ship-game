@@ -2,8 +2,8 @@ class_name MisilBulletStrategy
 extends BulletStrategy
 
 
-func _init() -> void:
-	await Engine.get_main_loop().create_timer(5).timeout
+func _init(duration_in_seconds: int) -> void:
+	await Engine.get_main_loop().create_timer(duration_in_seconds).timeout
 	timeout.emit()
 
 func apply_upgrade(bullet: Bullet):

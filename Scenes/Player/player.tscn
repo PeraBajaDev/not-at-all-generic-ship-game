@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpp30uc0osiu8"]
+[gd_scene load_steps=25 format=3 uid="uid://bpp30uc0osiu8"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_23fvy"]
 [ext_resource type="Texture2D" uid="uid://dxil8dtbyugy6" path="res://Assets/Sprites/Packs/SpaceShooter/Space Shooter files/player/sprites/player1.png" id="1_p5kka"]
@@ -14,9 +14,12 @@
 [ext_resource type="PackedScene" uid="uid://tj7osi7x5h35" path="res://Scenes/Health System/hurt_box.tscn" id="8_k8dlb"]
 [ext_resource type="PackedScene" uid="uid://c33r1shmgujmg" path="res://Scenes/Power Ups/bullet.tscn" id="8_p3dk5"]
 [ext_resource type="Script" path="res://Scripts/Player/disable_hurtbox_when_dashing.gd" id="10_nxnel"]
+[ext_resource type="Texture2D" uid="uid://ccwhwpmh4j1cr" path="res://Assets/Sprites/tactil-button-exit.png" id="12_6mktb"]
 [ext_resource type="AudioStream" uid="uid://drjairga10plk" path="res://Assets/Sounds/shot 1.wav" id="12_7h348"]
 [ext_resource type="Script" path="res://Scripts/Player/stats_manager.gd" id="13_4ma3o"]
+[ext_resource type="Texture2D" uid="uid://cb08g70nipi4u" path="res://Assets/Sprites/tactil-buitton-pressed.png" id="13_motxm"]
 [ext_resource type="Script" path="res://Scripts/Settings/random_pich_picker.gd" id="13_oeyvu"]
+[ext_resource type="Script" path="res://Scenes/Player/abilty_cooldown.gd" id="14_87aqh"]
 [ext_resource type="Resource" uid="uid://r0si1p503n1w" path="res://Resources/player_stats_.tres" id="14_f4qkd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_afsto"]
@@ -52,7 +55,7 @@ size = Vector2(14, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h8ufk"]
 size = Vector2(20, 14)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 16
 motion_mode = 1
 script = ExtResource("1_23fvy")
@@ -92,12 +95,31 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="BlastCanon" type="Node2D" parent="." node_paths=PackedStringArray("shooterNode")]
+[node name="BlastCanon" type="Node2D" parent="." node_paths=PackedStringArray("shooterNode") groups=["player"]]
 position = Vector2(12, 0)
 script = ExtResource("6_sepa4")
 bullet_scene = ExtResource("8_p3dk5")
 shooterNode = NodePath("../InputHandler")
 damage = 1
+
+[node name="AbiltyCooldown" type="TextureProgressBar" parent="BlastCanon"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = 10.0
+offset_right = -4.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+step = -1.0
+value = 100.0
+fill_mode = 5
+texture_under = ExtResource("12_6mktb")
+texture_progress = ExtResource("13_motxm")
+tint_under = Color(1, 1, 1, 0.0901961)
+tint_progress = Color(1, 1, 1, 0.729412)
+script = ExtResource("14_87aqh")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

@@ -3,9 +3,8 @@ extends BulletStrategy
 
 const SPREAD_NUMBER = 2
 const SPREAD_WAIT_TIME = 0.3
-func _init() -> void:
-	print("hola")
-	await Engine.get_main_loop().create_timer(5).timeout
+func _init(duration_in_seconds: int) -> void:
+	await Engine.get_main_loop().create_timer(duration_in_seconds).timeout
 	timeout.emit()
 func apply_upgrade(bullet: Bullet):
 	await Engine.get_main_loop().create_timer(SPREAD_WAIT_TIME).timeout
